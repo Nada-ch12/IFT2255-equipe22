@@ -1,0 +1,11 @@
+{
+  "name": "cheminement-prototype-demo",
+  "version": "0.2.0",
+  "description": "Prototype de démonstration du système de cheminement visé (IFT2255, phase 1). Aucune dépendance.",
+  "private": true,
+  "scripts": {
+    "test": "node tests/run_tests.js",
+    "start": "python -m http.server 8000"
+  },
+  "engines": { "node": ">=18" }
+}
