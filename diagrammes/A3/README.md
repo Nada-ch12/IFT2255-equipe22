@@ -1,4 +1,9 @@
 # A3 — Modèle C4 (niveaux 1 et 2)
 
-À déposer : fichiers sources et images des niveaux 1 et 2 (Nada).
-Les technologies du niveau 2 doivent correspondre au prototype (`prototype/`) ou expliquer l'écart.
+| Fichier | Niveau | Contenu |
+|---|---|---|
+| `A3-C4-Niveau1.vpp` | 1 — Contexte | Personne étudiante, personne qui encadre, laboratoires et organisations, conseil de programme ; systèmes externes : registrariat, répertoire des cours, calendrier universitaire |
+| `A3-C4-Niveau2.vpp` | 2 — Conteneurs | Application web (React), API REST (Node.js, Express), base de données (PostgreSQL), planificateur (cron), connecteurs d'import (Node.js) |
+
+**Images** : à exporter depuis une édition **Standard** sous licence (sans filigrane « evaluation copy »), 200 DPI.
+Correspondance avec le prototype : voir la section « Architecture visée et prototype » du README principal.

@@ -22,7 +22,7 @@ Ce dépôt contient le **prototype démonstratif** de notre solution, les **sour
 | `prototype/` | Application web du système visé (HTML/CSS/JavaScript, aucune dépendance) et ses tests |
 | `diagrammes/A1/` | Diagramme de cas d'utilisation (source et image) |
 | `diagrammes/A2/` | Cinq diagrammes d'activités (sources Visual Paradigm `.vpp` et images) |
-| `diagrammes/A3/` | Modèle C4, niveaux 1 et 2 (sources et images) |
+| `diagrammes/A3/` | Modèle C4, niveaux 1 et 2 (sources Visual Paradigm et images) |
 | `traces/P1` à `traces/P4/` | Sessions exportées (JSON) et captures du prototype de référence, par personne |
 | `rapport/` | Rapport d'analyse et de conception (PDF remis) |
 
@@ -60,9 +60,22 @@ Le prototype fonctionne **hors connexion, sans serveur** : tout s'exécute dans 
 
 ### Ce qui reste à faire (phases suivantes)
 
-- Architecture cible du C4 niveau 2 : API applicative, base de données, authentification, adaptateurs vers les systèmes institutionnels (catalogue, inscription, calendrier), notifications.
+- Architecture cible du C4 niveau 2 (voir ci-dessous) : API REST, base de données, planificateur, connecteurs d'import, authentification.
 - Import réel du relevé de notes et du catalogue ; règles de programme versionnées réelles.
 - Onglet « Personnes et lieux » (disponibilité des encadrants) et version anglaise.
+
+### Architecture visée (C4 niveau 2) et prototype
+
+Le prototype ne met **pas** en œuvre les technologies du C4 niveau 2 : il en simule la logique dans le navigateur, pour être lancé sans installation. L'écart est volontaire.
+
+| Conteneur du C4 niveau 2 | Technologie visée | Dans le prototype |
+|---|---|---|
+| Application web | React | `index.html`, `js/app.js` (JavaScript sans cadriciel) |
+| API REST | Node.js, Express | `js/rules.js` : règles et transitions d'état, en logique pure testable sous Node (réutilisable côté serveur) |
+| Base de données | PostgreSQL | Stockage local du navigateur (`localStorage`), repli en mémoire |
+| Planificateur | cron | Bouton « Avancer d'une semaine » : expirations, places, alertes |
+| Connecteurs d'import | Node.js | Données fictives de `js/data.js` (catalogue, préalables, calendrier) |
+| Registrariat, répertoire des cours, calendrier universitaire | Systèmes externes | Simulés ; provenance affichée sur chaque donnée |
 
 ## Installer et lancer le prototype
 
@@ -118,7 +131,7 @@ python tests/e2e_scenario.py
 | Nada Chiki | 20261599 | P1 — cours, préalables, retrait, clôture, parcours réel ; diagramme A2.1 | Modèle C4 (A3), niveaux 1 et 2 |
 | Ismail Mohib | 20274803 | P2 — encadrants et traitement des demandes ; diagramme A2.2 | Base du rapport, diagrammes A2 (Visual Paradigm), prototype initial |
 | Hamza Khalil | 20259237 | P3 — préférences et planification multi-sessions ; diagramme A2.4 | Assemblage du rapport PDF et intégration des diagrammes A1, A2, A3 |
-| Mohamed Driss | [à compléter] | P4 — contraintes (crédits, charge, temps plein, stages, concours, calendrier) ; diagramme A2.3 | Prototype (adaptation au rapport final), dépôt GitHub, README, traces, release |
+| Mohamed Driss | 20205703 | P4 — contraintes (crédits, charge, temps plein, stages, concours, calendrier) ; diagramme A2.3 | Prototype (adaptation au rapport final), dépôt GitHub, README, traces, release |
 
 Parties communes, faites en réunion : A1, A2.5, tableau exigences–objectifs, questions au conseiller, sources.
 
