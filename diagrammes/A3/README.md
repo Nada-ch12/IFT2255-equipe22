@@ -7,5 +7,5 @@
 
 Version du 30 septembre 2026 : étiquettes du niveau 2 précisées (ce qui circule + technologie), « Calendrier » corrigé au niveau 1.
 
-**Images** : à exporter depuis une édition **Standard** sous licence (sans filigrane « evaluation copy »), 200 DPI.
+**Images** : `A3-C4-Niveau1.png`, `A3-C4-Niveau2.png`, exportées depuis l'édition **Standard** sous licence UdeM (sans filigrane), 200 DPI. Mise en page ajustée pour que les noms et les étiquettes ne soient plus tronqués.
 Correspondance avec le prototype : voir la section « Architecture visée et prototype » du README principal.
