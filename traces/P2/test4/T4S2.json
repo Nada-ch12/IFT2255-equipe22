@@ -1,0 +1,3472 @@
+{
+  "format": "mon-cheminement/v1",
+  "exporteLe": "2026-09-29T18:12:36.199Z",
+  "langue": "fr",
+  "resume": {
+    "session": "Automne 2026",
+    "semaine": 2,
+    "phase": "Exploration",
+    "interets": [
+      "Psychologie",
+      "Robotique",
+      "Énergie"
+    ],
+    "exigences": {
+      "cours": 3,
+      "supervise": 2,
+      "activites": 1,
+      "creditsProgramme": 90
+    },
+    "profil": {
+      "focus": 55,
+      "applied": 50,
+      "work": 40,
+      "hours": 30
+    },
+    "credits": {
+      "acquired": 0,
+      "inProgress": 12,
+      "planned": 0,
+      "target": 90,
+      "remaining": 78
+    },
+    "plan": {
+      "confirmes": [
+        "Projet supervisé · Psychologie",
+        "Projet supervisé · Robotique"
+      ],
+      "offresRecues": [],
+      "demandesEnCours": [],
+      "demandesEnvoyees": 2,
+      "demandesExpirees": 0
+    },
+    "appreciations": [],
+    "sessionsSuivantes": [
+      {
+        "session": "Hiver 2027",
+        "exigences": {
+          "courses": 3,
+          "supervised": 0,
+          "activities": 1
+        },
+        "intentions": []
+      },
+      {
+        "session": "Été 2027",
+        "exigences": {
+          "courses": 1,
+          "supervised": 1,
+          "activities": 0
+        },
+        "intentions": []
+      },
+      {
+        "session": "Automne 2027",
+        "exigences": {
+          "courses": 3,
+          "supervised": 1,
+          "activities": 1
+        },
+        "intentions": []
+      }
+    ]
+  },
+  "etat": {
+    "t": 4,
+    "running": false,
+    "speed": 1,
+    "finished": false,
+    "providers": [
+      {
+        "id": "pr0",
+        "name": "Prof. Lavoie",
+        "type": "person",
+        "field": "software",
+        "trait": 2,
+        "availability": 0.94,
+        "activityBase": 0.88,
+        "activity": 0.8662177322105573,
+        "respRate": 2,
+        "backlog": 0,
+        "credit": 0.6057167990332489,
+        "renown": 0.68
+      },
+      {
+        "id": "pr1",
+        "name": "Prof. Okonkwo",
+        "type": "person",
+        "field": "systems",
+        "trait": 1,
+        "availability": 0.53,
+        "activityBase": 0.69,
+        "activity": 0.69,
+        "respRate": 4,
+        "backlog": 0,
+        "credit": 1.4628000000000048,
+        "renown": 0.67
+      },
+      {
+        "id": "pr2",
+        "name": "Prof. Bhattacharya",
+        "type": "person",
+        "field": "data",
+        "trait": 2,
+        "availability": 0.73,
+        "activityBase": 0.66,
+        "activity": 0.5758586405811863,
+        "respRate": 4,
+        "backlog": 2,
+        "credit": 0.7754254308508838,
+        "renown": 0.54
+      },
+      {
+        "id": "pr3",
+        "name": "Prof. Tremblay",
+        "type": "person",
+        "field": "psycho",
+        "trait": 0,
+        "availability": 0.83,
+        "activityBase": 0.77,
+        "activity": 0.7127415122518003,
+        "respRate": 3,
+        "backlog": 1,
+        "credit": 0.7809243715979083,
+        "renown": 0.63
+      },
+      {
+        "id": "pr4",
+        "name": "Prof. Nasser",
+        "type": "person",
+        "field": "gestion",
+        "trait": 2,
+        "availability": 0.66,
+        "activityBase": 0.74,
+        "activity": 0.5458597774383384,
+        "respRate": 3,
+        "backlog": 4,
+        "credit": 0.23528154220162825,
+        "renown": 0.88
+      },
+      {
+        "id": "pr5",
+        "name": "Prof. Roy",
+        "type": "person",
+        "field": "economie",
+        "trait": 1,
+        "availability": 0.7,
+        "activityBase": 0.77,
+        "activity": 0.75936920713762,
+        "respRate": 3,
+        "backlog": 0,
+        "credit": 0.585596837003302,
+        "renown": 0.69
+      },
+      {
+        "id": "pr6",
+        "name": "Prof. Sokolova",
+        "type": "person",
+        "field": "linguistique",
+        "trait": 2,
+        "availability": 0.73,
+        "activityBase": 0.57,
+        "activity": 0.5252180960264385,
+        "respRate": 4,
+        "backlog": 1,
+        "credit": 0.5467592478808427,
+        "renown": 0.97
+      },
+      {
+        "id": "pr7",
+        "name": "Prof. Mendes",
+        "type": "person",
+        "field": "biologie",
+        "trait": 0,
+        "availability": 0.83,
+        "activityBase": 0.75,
+        "activity": 0.75,
+        "respRate": 5,
+        "backlog": 0,
+        "credit": 3.1125000000000074,
+        "renown": 0.55
+      },
+      {
+        "id": "pr8",
+        "name": "Prof. Chen",
+        "type": "person",
+        "field": "health",
+        "trait": 2,
+        "availability": 0.68,
+        "activityBase": 0.53,
+        "activity": 0.53,
+        "respRate": 3,
+        "backlog": 0,
+        "credit": 1.0812000000000035,
+        "renown": 0.77
+      },
+      {
+        "id": "pr9",
+        "name": "Prof. Boucher",
+        "type": "person",
+        "field": "robotics",
+        "trait": 2,
+        "availability": 0.44,
+        "activityBase": 0.67,
+        "activity": 0.6115900255038524,
+        "respRate": 5,
+        "backlog": 1,
+        "credit": 0.35087120816745987,
+        "renown": 0.48
+      },
+      {
+        "id": "pr10",
+        "name": "Prof. Haddad",
+        "type": "person",
+        "field": "energy",
+        "trait": 1,
+        "availability": 0.53,
+        "activityBase": 0.52,
+        "activity": 0.42721060702875496,
+        "respRate": 2,
+        "backlog": 3,
+        "credit": 0.49606337696485653,
+        "renown": 0.8
+      },
+      {
+        "id": "pr11",
+        "name": "Prof. Kowalski",
+        "type": "person",
+        "field": "design",
+        "trait": 1,
+        "availability": 0.53,
+        "activityBase": 0.61,
+        "activity": 0.61,
+        "respRate": 4,
+        "backlog": 0,
+        "credit": 1.2932000000000012,
+        "renown": 0.31
+      },
+      {
+        "id": "pr12",
+        "name": "Prof. Girard",
+        "type": "person",
+        "field": "society",
+        "trait": 2,
+        "availability": 0.82,
+        "activityBase": 0.79,
+        "activity": 0.7869433654469382,
+        "respRate": 5,
+        "backlog": 0,
+        "credit": 2.1927575980002705,
+        "renown": 0.33
+      },
+      {
+        "id": "lb0",
+        "name": "Laboratoire Kessel",
+        "type": "lab",
+        "field": "biologie",
+        "trait": 2,
+        "availability": 0.42,
+        "activityBase": 0.67,
+        "activity": 0.67,
+        "respRate": 6,
+        "backlog": 0,
+        "credit": 1.6884000000000012,
+        "renown": 0.91
+      },
+      {
+        "id": "lb1",
+        "name": "Atelier Nord",
+        "type": "lab",
+        "field": "gestion",
+        "trait": 1,
+        "availability": 0.58,
+        "activityBase": 0.61,
+        "activity": 0.61,
+        "respRate": 6,
+        "backlog": 0,
+        "credit": 2.1228000000000016,
+        "renown": 0.67
+      },
+      {
+        "id": "lb2",
+        "name": "Groupe Rivard",
+        "type": "lab",
+        "field": "data",
+        "trait": 2,
+        "availability": 0.51,
+        "activityBase": 0.46,
+        "activity": 0.46,
+        "respRate": 4,
+        "backlog": 0,
+        "credit": 0.9384000000000025,
+        "renown": 0.54
+      },
+      {
+        "id": "og0",
+        "name": "Coopérative Volta",
+        "type": "org",
+        "field": "software",
+        "trait": 0,
+        "availability": 0.56,
+        "activityBase": 0.77,
+        "activity": 0.77,
+        "respRate": 4,
+        "backlog": 0,
+        "credit": 1.724800000000004,
+        "renown": 0.55
+      },
+      {
+        "id": "og1",
+        "name": "Studio Mirage",
+        "type": "org",
+        "field": "society",
+        "trait": 2,
+        "availability": 0.39,
+        "activityBase": 0.55,
+        "activity": 0.55,
+        "respRate": 4,
+        "backlog": 0,
+        "credit": 0.8580000000000007,
+        "renown": 0.5
+      },
+      {
+        "id": "og2",
+        "name": "Clinique Beaumont",
+        "type": "org",
+        "field": "biologie",
+        "trait": 0,
+        "availability": 0.41,
+        "activityBase": 0.54,
+        "activity": 0.54,
+        "respRate": 2,
+        "backlog": 0,
+        "credit": 0.4428000000000013,
+        "renown": 0.64
+      },
+      {
+        "id": "og3",
+        "name": "Fondation Arpent",
+        "type": "org",
+        "field": "health",
+        "trait": 0,
+        "availability": 0.32,
+        "activityBase": 0.4,
+        "activity": 0.4,
+        "respRate": 4,
+        "backlog": 0,
+        "credit": 0.5120000000000012,
+        "renown": 0.78
+      }
+    ],
+    "acts": [
+      {
+        "id": "8cujgvg",
+        "taken": 0,
+        "held": 0,
+        "accepted": 0,
+        "pending": [
+          {
+            "sid": "o22",
+            "at": 1.0500000000000003
+          },
+          {
+            "sid": "o57",
+            "at": 3.2999999999999963
+          }
+        ],
+        "kind": "course",
+        "titleKey": "course",
+        "code": "IFT1015",
+        "name": "Programmation 1",
+        "field": "software",
+        "provider": null,
+        "slots": 33,
+        "opensWeek": 1
+      },
+      {
+        "id": "tgwrxw1",
+        "taken": 0,
+        "held": 0,
+        "accepted": 0,
+        "pending": [
+          {
+            "sid": "o3",
+            "at": 0.15000000000000002
+          },
+          {
+            "sid": "o49",
+            "at": 0.44999999999999996
+          }
+        ],
+        "kind": "course",
+        "titleKey": "course",
+        "code": "IFT1025",
+        "name": "Programmation 2",
+        "field": "software",
+        "provider": null,
+        "slots": 39,
+        "opensWeek": 1
+      },
+      {
+        "id": "5mdrlgp",
+        "taken": 0,
+        "held": 0,
+        "accepted": 0,
+        "pending": [
+          {
+            "sid": "o25",
+            "at": 0.9000000000000002
+          },
+          {
+            "sid": "o81",
+            "at": 1.1500000000000004
+          },
+          {
+            "sid": "o56",
+            "at": 1.3500000000000005
+          }
+        ],
+        "kind": "course",
+        "titleKey": "course",
+        "code": "IFT2255",
+        "name": "Génie logiciel",
+        "field": "software",
+        "provider": null,
+        "slots": 28,
+        "opensWeek": 1
+      },
+      {
+        "id": "8jgnq31",
+        "taken": 0,
+        "held": 0,
+        "accepted": 0,
+        "pending": [
+          {
+            "sid": "o62",
+            "at": 1.3000000000000005
+          }
+        ],
+        "kind": "course",
+        "titleKey": "course",
+        "code": "IFT2245",
+        "name": "Introduction aux systèmes d'exploitation",
+        "field": "systems",
+        "provider": null,
+        "slots": 40,
+        "opensWeek": 1
+      },
+      {
+        "id": "q46wrop",
+        "taken": 0,
+        "held": 0,
+        "accepted": 0,
+        "pending": [
+          {
+            "sid": "o21",
+            "at": 1.3500000000000005
+          }
+        ],
+        "kind": "course",
+        "titleKey": "course",
+        "code": "IFT1227",
+        "name": "Architecture des ordinateurs",
+        "field": "systems",
+        "provider": null,
+        "slots": 22,
+        "opensWeek": 1
+      },
+      {
+        "id": "yz1st5m",
+        "taken": 0,
+        "held": 0,
+        "accepted": 0,
+        "pending": [
+          {
+            "sid": "o0",
+            "at": 1.1500000000000004
+          },
+          {
+            "sid": "o75",
+            "at": 1.2500000000000004
+          }
+        ],
+        "kind": "course",
+        "titleKey": "course",
+        "code": "IFT3325",
+        "name": "Introduction aux réseaux informatiques",
+        "field": "systems",
+        "provider": null,
+        "slots": 24,
+        "opensWeek": 1
+      },
+      {
+        "id": "xlalnjt",
+        "taken": 0,
+        "held": 0,
+        "accepted": 0,
+        "pending": [],
+        "kind": "course",
+        "titleKey": "course",
+        "code": "IFT2015",
+        "name": "Structures de données",
+        "field": "data",
+        "provider": null,
+        "slots": 37,
+        "opensWeek": 3
+      },
+      {
+        "id": "zoxamvv",
+        "taken": 2,
+        "held": 1,
+        "accepted": 3,
+        "pending": [
+          {
+            "sid": "o45",
+            "at": 1.4000000000000006
+          },
+          {
+            "sid": "o26",
+            "at": 2.8999999999999977
+          },
+          {
+            "sid": "o55",
+            "at": 3.2999999999999963
+          },
+          {
+            "sid": "o2",
+            "at": 3.999999999999994
+          }
+        ],
+        "kind": "course",
+        "titleKey": "course",
+        "code": "IFT3395",
+        "name": "Fondements de l'apprentissage machine",
+        "field": "data",
+        "provider": null,
+        "slots": 30,
+        "opensWeek": 1
+      },
+      {
+        "id": "54jidpx",
+        "taken": 0,
+        "held": 0,
+        "accepted": 0,
+        "pending": [
+          {
+            "sid": "o64",
+            "at": 0.25
+          },
+          {
+            "sid": "o50",
+            "at": 0.5499999999999999
+          },
+          {
+            "sid": "o86",
+            "at": 1.3000000000000005
+          }
+        ],
+        "kind": "course",
+        "titleKey": "course",
+        "code": "STT1700",
+        "name": "Introduction à la statistique",
+        "field": "data",
+        "provider": null,
+        "slots": 40,
+        "opensWeek": 1
+      },
+      {
+        "id": "s1fhx0t",
+        "taken": 0,
+        "held": 0,
+        "accepted": 0,
+        "pending": [
+          {
+            "sid": "o42",
+            "at": 3.4499999999999957
+          }
+        ],
+        "kind": "course",
+        "titleKey": "course",
+        "code": "PSY1075",
+        "name": "Psychologie sociale",
+        "field": "psycho",
+        "provider": null,
+        "slots": 33,
+        "opensWeek": 1
+      },
+      {
+        "id": "wy0q3sr",
+        "taken": 0,
+        "held": 1,
+        "accepted": 1,
+        "pending": [
+          {
+            "sid": "o77",
+            "at": 0.7000000000000001
+          },
+          {
+            "sid": "o12",
+            "at": 0.9500000000000003
+          },
+          {
+            "sid": "o73",
+            "at": 1.2500000000000004
+          }
+        ],
+        "kind": "course",
+        "titleKey": "course",
+        "code": "PSY1095",
+        "name": "Psychologie du développement",
+        "field": "psycho",
+        "provider": null,
+        "slots": 23,
+        "opensWeek": 1
+      },
+      {
+        "id": "54awmom",
+        "taken": 0,
+        "held": 0,
+        "accepted": 0,
+        "pending": [
+          {
+            "sid": "o7",
+            "at": 1.0000000000000002
+          }
+        ],
+        "kind": "course",
+        "titleKey": "course",
+        "code": "PSY2065",
+        "name": "Processus cognitifs 1",
+        "field": "psycho",
+        "provider": null,
+        "slots": 33,
+        "opensWeek": 1
+      },
+      {
+        "id": "j3u34gp",
+        "taken": 3,
+        "held": 1,
+        "accepted": 4,
+        "pending": [
+          {
+            "sid": "o4",
+            "at": 1.3500000000000005
+          },
+          {
+            "sid": "o85",
+            "at": 1.5000000000000007
+          },
+          {
+            "sid": "o9",
+            "at": 3.7999999999999945
+          }
+        ],
+        "kind": "course",
+        "titleKey": "course",
+        "code": "COMP10903",
+        "name": "Comptabilité financière",
+        "field": "gestion",
+        "provider": null,
+        "slots": 22,
+        "opensWeek": 1
+      },
+      {
+        "id": "ab6i7y6",
+        "taken": 0,
+        "held": 0,
+        "accepted": 0,
+        "pending": [],
+        "kind": "course",
+        "titleKey": "course",
+        "code": "MARK10100",
+        "name": "Introduction au marketing",
+        "field": "gestion",
+        "provider": null,
+        "slots": 22,
+        "opensWeek": 3
+      },
+      {
+        "id": "9pntzqn",
+        "taken": 0,
+        "held": 0,
+        "accepted": 0,
+        "pending": [
+          {
+            "sid": "o46",
+            "at": 0.44999999999999996
+          },
+          {
+            "sid": "o47",
+            "at": 0.8500000000000002
+          },
+          {
+            "sid": "o61",
+            "at": 2.549999999999999
+          }
+        ],
+        "kind": "course",
+        "titleKey": "course",
+        "code": "FINA10200",
+        "name": "Finance",
+        "field": "gestion",
+        "provider": null,
+        "slots": 40,
+        "opensWeek": 1
+      },
+      {
+        "id": "7hzb4jp",
+        "taken": 0,
+        "held": 0,
+        "accepted": 0,
+        "pending": [
+          {
+            "sid": "o18",
+            "at": 0.7000000000000001
+          }
+        ],
+        "kind": "course",
+        "titleKey": "course",
+        "code": "ECN1000",
+        "name": "Principes d'économie",
+        "field": "economie",
+        "provider": null,
+        "slots": 34,
+        "opensWeek": 1
+      },
+      {
+        "id": "0xpy8iw",
+        "taken": 0,
+        "held": 0,
+        "accepted": 0,
+        "pending": [
+          {
+            "sid": "o27",
+            "at": 1.0500000000000003
+          }
+        ],
+        "kind": "course",
+        "titleKey": "course",
+        "code": "ECON10803",
+        "name": "Décisions microéconomiques de l'entreprise",
+        "field": "economie",
+        "provider": null,
+        "slots": 26,
+        "opensWeek": 1
+      },
+      {
+        "id": "9iun6jd",
+        "taken": 0,
+        "held": 0,
+        "accepted": 0,
+        "pending": [
+          {
+            "sid": "o71",
+            "at": 1.1000000000000003
+          },
+          {
+            "sid": "o76",
+            "at": 3.699999999999995
+          }
+        ],
+        "kind": "course",
+        "titleKey": "course",
+        "code": "ECN1050",
+        "name": "Introduction à la microéconomie",
+        "field": "economie",
+        "provider": null,
+        "slots": 31,
+        "opensWeek": 1
+      },
+      {
+        "id": "gt4an9e",
+        "taken": 0,
+        "held": 0,
+        "accepted": 0,
+        "pending": [
+          {
+            "sid": "o84",
+            "at": 0.49999999999999994
+          }
+        ],
+        "kind": "course",
+        "titleKey": "course",
+        "code": "LNG1080",
+        "name": "Notions de lexicologie, morphologie et sémantique",
+        "field": "linguistique",
+        "provider": null,
+        "slots": 27,
+        "opensWeek": 1
+      },
+      {
+        "id": "2lw6r7d",
+        "taken": 0,
+        "held": 0,
+        "accepted": 0,
+        "pending": [
+          {
+            "sid": "o15",
+            "at": 0.15000000000000002
+          },
+          {
+            "sid": "o8",
+            "at": 0.65
+          },
+          {
+            "sid": "o14",
+            "at": 3.149999999999997
+          }
+        ],
+        "kind": "course",
+        "titleKey": "course",
+        "code": "LNG1070",
+        "name": "Phonétique et phonologie",
+        "field": "linguistique",
+        "provider": null,
+        "slots": 30,
+        "opensWeek": 1
+      },
+      {
+        "id": "zhl1sng",
+        "taken": 0,
+        "held": 0,
+        "accepted": 0,
+        "pending": [],
+        "kind": "course",
+        "titleKey": "course",
+        "code": "LNG2050",
+        "name": "Syntaxe",
+        "field": "linguistique",
+        "provider": null,
+        "slots": 22,
+        "opensWeek": 3
+      },
+      {
+        "id": "g9gtx8e",
+        "taken": 0,
+        "held": 0,
+        "accepted": 0,
+        "pending": [
+          {
+            "sid": "o33",
+            "at": 0.9000000000000002
+          }
+        ],
+        "kind": "course",
+        "titleKey": "course",
+        "code": "BIO1153",
+        "name": "Biologie cellulaire",
+        "field": "biologie",
+        "provider": null,
+        "slots": 34,
+        "opensWeek": 1
+      },
+      {
+        "id": "1c24cu5",
+        "taken": 0,
+        "held": 0,
+        "accepted": 0,
+        "pending": [
+          {
+            "sid": "o78",
+            "at": 0.1
+          },
+          {
+            "sid": "o30",
+            "at": 0.44999999999999996
+          },
+          {
+            "sid": "o1",
+            "at": 1.2000000000000004
+          },
+          {
+            "sid": "o72",
+            "at": 1.2000000000000004
+          }
+        ],
+        "kind": "course",
+        "titleKey": "course",
+        "code": "BIO1203",
+        "name": "Introduction à la génétique",
+        "field": "biologie",
+        "provider": null,
+        "slots": 23,
+        "opensWeek": 1
+      },
+      {
+        "id": "z3l69yt",
+        "taken": 0,
+        "held": 0,
+        "accepted": 0,
+        "pending": [
+          {
+            "sid": "o34",
+            "at": 0.05
+          },
+          {
+            "sid": "o74",
+            "at": 1.5000000000000007
+          }
+        ],
+        "kind": "course",
+        "titleKey": "course",
+        "code": "BIO1803",
+        "name": "Écologie et environnement",
+        "field": "biologie",
+        "provider": null,
+        "slots": 27,
+        "opensWeek": 1
+      },
+      {
+        "id": "c2cgop1",
+        "taken": 0,
+        "held": 0,
+        "accepted": 0,
+        "pending": [
+          {
+            "sid": "o59",
+            "at": 0.25
+          },
+          {
+            "sid": "o16",
+            "at": 1.1500000000000004
+          },
+          {
+            "sid": "o29",
+            "at": 1.2000000000000004
+          },
+          {
+            "sid": "o19",
+            "at": 1.2500000000000004
+          }
+        ],
+        "kind": "course",
+        "titleKey": "course",
+        "code": "SBM1000",
+        "name": "Introduction aux sciences biomédicales",
+        "field": "health",
+        "provider": null,
+        "slots": 29,
+        "opensWeek": 1
+      },
+      {
+        "id": "9wlk893",
+        "taken": 0,
+        "held": 0,
+        "accepted": 0,
+        "pending": [
+          {
+            "sid": "o44",
+            "at": 0.5499999999999999
+          },
+          {
+            "sid": "o67",
+            "at": 1.1500000000000004
+          }
+        ],
+        "kind": "course",
+        "titleKey": "course",
+        "code": "NUT1000",
+        "name": "Nutrition et métabolisme",
+        "field": "health",
+        "provider": null,
+        "slots": 29,
+        "opensWeek": 1
+      },
+      {
+        "id": "vr4xkps",
+        "taken": 0,
+        "held": 0,
+        "accepted": 0,
+        "pending": [
+          {
+            "sid": "o70",
+            "at": 0.7000000000000001
+          },
+          {
+            "sid": "o53",
+            "at": 0.9500000000000003
+          },
+          {
+            "sid": "o52",
+            "at": 1.0500000000000003
+          },
+          {
+            "sid": "o65",
+            "at": 1.3000000000000005
+          }
+        ],
+        "kind": "course",
+        "titleKey": "course",
+        "code": "ELE8200",
+        "name": "Systèmes robotiques",
+        "field": "robotics",
+        "provider": null,
+        "slots": 32,
+        "opensWeek": 1
+      },
+      {
+        "id": "geestbb",
+        "taken": 0,
+        "held": 0,
+        "accepted": 0,
+        "pending": [],
+        "kind": "course",
+        "titleKey": "course",
+        "code": "MEC1310",
+        "name": "Mécanique des systèmes",
+        "field": "robotics",
+        "provider": null,
+        "slots": 34,
+        "opensWeek": 2
+      },
+      {
+        "id": "fr6un0c",
+        "taken": 0,
+        "held": 0,
+        "accepted": 0,
+        "pending": [
+          {
+            "sid": "o68",
+            "at": 0.49999999999999994
+          },
+          {
+            "sid": "o66",
+            "at": 0.65
+          }
+        ],
+        "kind": "course",
+        "titleKey": "course",
+        "code": "PHY1441",
+        "name": "Thermodynamique",
+        "field": "energy",
+        "provider": null,
+        "slots": 38,
+        "opensWeek": 1
+      },
+      {
+        "id": "0uis2ig",
+        "taken": 0,
+        "held": 0,
+        "accepted": 0,
+        "pending": [
+          {
+            "sid": "o69",
+            "at": 1.4000000000000006
+          }
+        ],
+        "kind": "course",
+        "titleKey": "course",
+        "code": "PHY1620",
+        "name": "Électricité et magnétisme",
+        "field": "energy",
+        "provider": null,
+        "slots": 39,
+        "opensWeek": 1
+      },
+      {
+        "id": "qwy6te5",
+        "taken": 1,
+        "held": 1,
+        "accepted": 2,
+        "pending": [
+          {
+            "sid": "o11",
+            "at": 1.850000000000001
+          },
+          {
+            "sid": "o87",
+            "at": 3.2499999999999964
+          },
+          {
+            "sid": "o28",
+            "at": 3.2999999999999963
+          },
+          {
+            "sid": "o39",
+            "at": 3.649999999999995
+          }
+        ],
+        "kind": "course",
+        "titleKey": "course",
+        "code": "DIN1104",
+        "name": "Atelier de design 1",
+        "field": "design",
+        "provider": null,
+        "slots": 23,
+        "opensWeek": 1
+      },
+      {
+        "id": "y323hi2",
+        "taken": 8,
+        "held": 3,
+        "accepted": 11,
+        "pending": [
+          {
+            "sid": "o83",
+            "at": 1.5000000000000007
+          },
+          {
+            "sid": "o35",
+            "at": 2.3
+          },
+          {
+            "sid": "o13",
+            "at": 2.549999999999999
+          },
+          {
+            "sid": "o80",
+            "at": 2.799999999999998
+          }
+        ],
+        "kind": "course",
+        "titleKey": "course",
+        "code": "AME1100",
+        "name": "Fondements de l'aménagement",
+        "field": "design",
+        "provider": null,
+        "slots": 29,
+        "opensWeek": 1
+      },
+      {
+        "id": "u41hjv1",
+        "taken": 0,
+        "held": 0,
+        "accepted": 0,
+        "pending": [
+          {
+            "sid": "o40",
+            "at": 0.39999999999999997
+          },
+          {
+            "sid": "o63",
+            "at": 0.39999999999999997
+          },
+          {
+            "sid": "o51",
+            "at": 0.9500000000000003
+          },
+          {
+            "sid": "o37",
+            "at": 2.1000000000000005
+          }
+        ],
+        "kind": "course",
+        "titleKey": "course",
+        "code": "COM1500",
+        "name": "Communication et technologies",
+        "field": "society",
+        "provider": null,
+        "slots": 29,
+        "opensWeek": 1
+      },
+      {
+        "id": "kn1l1tk",
+        "taken": 0,
+        "held": 0,
+        "accepted": 0,
+        "pending": [
+          {
+            "sid": "o5",
+            "at": 0.35
+          },
+          {
+            "sid": "o38",
+            "at": 0.7000000000000001
+          }
+        ],
+        "kind": "course",
+        "titleKey": "course",
+        "code": "SOL1010",
+        "name": "Sociologie des sciences et des techniques",
+        "field": "society",
+        "provider": null,
+        "slots": 22,
+        "opensWeek": 1
+      },
+      {
+        "id": "k8nafuf",
+        "taken": 1,
+        "held": 0,
+        "accepted": 1,
+        "pending": [],
+        "kind": "project",
+        "titleKey": "project",
+        "field": "software",
+        "provider": "pr0",
+        "providerName": "Prof. Lavoie",
+        "slots": 2,
+        "opensWeek": 1
+      },
+      {
+        "id": "mjtf2w1",
+        "taken": 0,
+        "held": 0,
+        "accepted": 0,
+        "pending": [],
+        "kind": "project",
+        "titleKey": "project",
+        "field": "systems",
+        "provider": "pr1",
+        "providerName": "Prof. Okonkwo",
+        "slots": 2,
+        "opensWeek": 1
+      },
+      {
+        "id": "sboldl3",
+        "taken": 1,
+        "held": 0,
+        "accepted": 1,
+        "pending": [
+          {
+            "sid": "o24",
+            "at": 0.9000000000000002
+          },
+          {
+            "sid": "o82",
+            "at": 1.5000000000000007
+          }
+        ],
+        "kind": "project",
+        "titleKey": "project",
+        "field": "data",
+        "provider": "pr2",
+        "providerName": "Prof. Bhattacharya",
+        "slots": 4,
+        "opensWeek": 1
+      },
+      {
+        "id": "10ndkq4",
+        "taken": 1,
+        "held": 0,
+        "accepted": 1,
+        "pending": [
+          {
+            "sid": "o58",
+            "at": 0.5499999999999999
+          }
+        ],
+        "kind": "project",
+        "titleKey": "project",
+        "field": "psycho",
+        "provider": "pr3",
+        "providerName": "Prof. Tremblay",
+        "slots": 3,
+        "opensWeek": 1
+      },
+      {
+        "id": "wxpobov",
+        "taken": 1,
+        "held": 0,
+        "accepted": 1,
+        "pending": [
+          {
+            "sid": "o43",
+            "at": 0.39999999999999997
+          },
+          {
+            "sid": "o79",
+            "at": 1.0500000000000003
+          },
+          {
+            "sid": "o20",
+            "at": 1.1000000000000003
+          },
+          {
+            "sid": "o36",
+            "at": 2.000000000000001
+          }
+        ],
+        "kind": "project",
+        "titleKey": "project",
+        "field": "gestion",
+        "provider": "pr4",
+        "providerName": "Prof. Nasser",
+        "slots": 3,
+        "opensWeek": 1
+      },
+      {
+        "id": "wi5mqri",
+        "taken": 1,
+        "held": 0,
+        "accepted": 1,
+        "pending": [],
+        "kind": "project",
+        "titleKey": "project",
+        "field": "economie",
+        "provider": "pr5",
+        "providerName": "Prof. Roy",
+        "slots": 3,
+        "opensWeek": 1
+      },
+      {
+        "id": "b989afu",
+        "taken": 0,
+        "held": 1,
+        "accepted": 1,
+        "pending": [
+          {
+            "sid": "o31",
+            "at": 0.8000000000000002
+          }
+        ],
+        "kind": "project",
+        "titleKey": "project",
+        "field": "linguistique",
+        "provider": "pr6",
+        "providerName": "Prof. Sokolova",
+        "slots": 3,
+        "opensWeek": 1
+      },
+      {
+        "id": "xilt395",
+        "taken": 0,
+        "held": 0,
+        "accepted": 0,
+        "pending": [],
+        "kind": "project",
+        "titleKey": "project",
+        "field": "biologie",
+        "provider": "pr7",
+        "providerName": "Prof. Mendes",
+        "slots": 4,
+        "opensWeek": 1
+      },
+      {
+        "id": "gtg3xab",
+        "taken": 0,
+        "held": 0,
+        "accepted": 0,
+        "pending": [],
+        "kind": "project",
+        "titleKey": "project",
+        "field": "health",
+        "provider": "pr8",
+        "providerName": "Prof. Chen",
+        "slots": 3,
+        "opensWeek": 1
+      },
+      {
+        "id": "cfst4u4",
+        "taken": 1,
+        "held": 0,
+        "accepted": 1,
+        "pending": [
+          {
+            "sid": "o23",
+            "at": 0.25
+          }
+        ],
+        "kind": "project",
+        "titleKey": "project",
+        "field": "robotics",
+        "provider": "pr9",
+        "providerName": "Prof. Boucher",
+        "slots": 2,
+        "opensWeek": 1
+      },
+      {
+        "id": "qz5r10i",
+        "taken": 0,
+        "held": 0,
+        "accepted": 0,
+        "pending": [
+          {
+            "sid": "o54",
+            "at": 0.05
+          },
+          {
+            "sid": "o60",
+            "at": 1.2500000000000004
+          },
+          {
+            "sid": "o32",
+            "at": 1.4000000000000006
+          }
+        ],
+        "kind": "project",
+        "titleKey": "project",
+        "field": "energy",
+        "provider": "pr10",
+        "providerName": "Prof. Haddad",
+        "slots": 3,
+        "opensWeek": 1
+      },
+      {
+        "id": "jpuv9e2",
+        "taken": 0,
+        "held": 0,
+        "accepted": 0,
+        "pending": [],
+        "kind": "project",
+        "titleKey": "project",
+        "field": "design",
+        "provider": "pr11",
+        "providerName": "Prof. Kowalski",
+        "slots": 2,
+        "opensWeek": 1
+      },
+      {
+        "id": "ksi0f7t",
+        "taken": 1,
+        "held": 0,
+        "accepted": 1,
+        "pending": [],
+        "kind": "project",
+        "titleKey": "project",
+        "field": "society",
+        "provider": "pr12",
+        "providerName": "Prof. Girard",
+        "slots": 2,
+        "opensWeek": 1
+      },
+      {
+        "id": "qdu2xb7",
+        "taken": 0,
+        "held": 0,
+        "accepted": 0,
+        "pending": [],
+        "kind": "lab",
+        "titleKey": "lab",
+        "field": "biologie",
+        "provider": "lb0",
+        "providerName": "Laboratoire Kessel",
+        "slots": 3,
+        "opensWeek": 3
+      },
+      {
+        "id": "zqxzktq",
+        "taken": 0,
+        "held": 0,
+        "accepted": 0,
+        "pending": [],
+        "kind": "lab",
+        "titleKey": "lab",
+        "field": "gestion",
+        "provider": "lb1",
+        "providerName": "Atelier Nord",
+        "slots": 4,
+        "opensWeek": 3
+      },
+      {
+        "id": "n3jq8h4",
+        "taken": 0,
+        "held": 0,
+        "accepted": 0,
+        "pending": [],
+        "kind": "lab",
+        "titleKey": "lab",
+        "field": "data",
+        "provider": "lb2",
+        "providerName": "Groupe Rivard",
+        "slots": 5,
+        "opensWeek": 2
+      },
+      {
+        "id": "81zxh1j",
+        "taken": 0,
+        "held": 0,
+        "accepted": 0,
+        "pending": [],
+        "kind": "internship",
+        "titleKey": "internship",
+        "field": "software",
+        "provider": "og0",
+        "providerName": "Coopérative Volta",
+        "slots": 1,
+        "opensWeek": 7
+      },
+      {
+        "id": "dw7n87k",
+        "taken": 0,
+        "held": 0,
+        "accepted": 0,
+        "pending": [],
+        "kind": "internship",
+        "titleKey": "internship",
+        "field": "society",
+        "provider": "og1",
+        "providerName": "Studio Mirage",
+        "slots": 3,
+        "opensWeek": 7
+      },
+      {
+        "id": "js5gonf",
+        "taken": 0,
+        "held": 0,
+        "accepted": 0,
+        "pending": [],
+        "kind": "internship",
+        "titleKey": "internship",
+        "field": "biologie",
+        "provider": "og2",
+        "providerName": "Clinique Beaumont",
+        "slots": 2,
+        "opensWeek": 4
+      },
+      {
+        "id": "xcpie04",
+        "taken": 0,
+        "held": 0,
+        "accepted": 0,
+        "pending": [],
+        "kind": "internship",
+        "titleKey": "internship",
+        "field": "health",
+        "provider": "og3",
+        "providerName": "Fondation Arpent",
+        "slots": 2,
+        "opensWeek": 4
+      },
+      {
+        "id": "24ahkwx",
+        "taken": 0,
+        "held": 0,
+        "accepted": 0,
+        "pending": [],
+        "kind": "seminar",
+        "titleKey": "reading",
+        "field": "society",
+        "provider": null,
+        "slots": 12,
+        "opensWeek": 5
+      },
+      {
+        "id": "moj25dw",
+        "taken": 0,
+        "held": 0,
+        "accepted": 0,
+        "pending": [],
+        "kind": "seminar",
+        "titleKey": "workshop",
+        "field": "energy",
+        "provider": null,
+        "slots": 18,
+        "opensWeek": 6
+      },
+      {
+        "id": "09anavk",
+        "taken": 0,
+        "held": 0,
+        "accepted": 0,
+        "pending": [],
+        "kind": "seminar",
+        "titleKey": "visit",
+        "field": "robotics",
+        "provider": null,
+        "slots": 17,
+        "opensWeek": 3
+      },
+      {
+        "id": "c6qqwt7",
+        "taken": 0,
+        "held": 0,
+        "accepted": 0,
+        "pending": [],
+        "kind": "competition",
+        "titleKey": "sprint",
+        "field": "health",
+        "provider": null,
+        "slots": 13,
+        "opensWeek": 5
+      },
+      {
+        "id": "tmcuau8",
+        "taken": 0,
+        "held": 0,
+        "accepted": 0,
+        "pending": [],
+        "kind": "competition",
+        "titleKey": "challenge",
+        "field": "energy",
+        "provider": null,
+        "slots": 13,
+        "opensWeek": 8
+      }
+    ],
+    "others": [
+      {
+        "id": "o0",
+        "tags": [
+          "systems",
+          "society"
+        ],
+        "needCourses": 3,
+        "needSup": 0,
+        "needAct": 0,
+        "courses": 0,
+        "sup": 0,
+        "act": 0,
+        "pending": {
+          "oid": "yz1st5m",
+          "at": 1.1500000000000004
+        },
+        "held": [],
+        "cooldown": 0.5181131120554362
+      },
+      {
+        "id": "o1",
+        "tags": [
+          "biologie",
+          "energy"
+        ],
+        "needCourses": 3,
+        "needSup": 0,
+        "needAct": 0,
+        "courses": 0,
+        "sup": 0,
+        "act": 0,
+        "pending": {
+          "oid": "1c24cu5",
+          "at": 1.2000000000000004
+        },
+        "held": [],
+        "cooldown": 0.9174709078925927
+      },
+      {
+        "id": "o2",
+        "tags": [
+          "data",
+          "biologie"
+        ],
+        "needCourses": 4,
+        "needSup": 1,
+        "needAct": 0,
+        "courses": 1,
+        "sup": 0,
+        "act": 0,
+        "pending": {
+          "oid": "zoxamvv",
+          "at": 3.999999999999994
+        },
+        "held": [],
+        "cooldown": 1.1465929066066072
+      },
+      {
+        "id": "o3",
+        "tags": [
+          "software",
+          "economie"
+        ],
+        "needCourses": 2,
+        "needSup": 0,
+        "needAct": 0,
+        "courses": 0,
+        "sup": 0,
+        "act": 0,
+        "pending": {
+          "oid": "tgwrxw1",
+          "at": 0.15000000000000002
+        },
+        "held": [],
+        "cooldown": 0.7744330326060394
+      },
+      {
+        "id": "o4",
+        "tags": [
+          "gestion",
+          "linguistique"
+        ],
+        "needCourses": 3,
+        "needSup": 0,
+        "needAct": 1,
+        "courses": 0,
+        "sup": 0,
+        "act": 0,
+        "pending": {
+          "oid": "j3u34gp",
+          "at": 1.3500000000000005
+        },
+        "held": [],
+        "cooldown": 1.103494618223578
+      },
+      {
+        "id": "o5",
+        "tags": [
+          "society",
+          "gestion"
+        ],
+        "needCourses": 3,
+        "needSup": 1,
+        "needAct": 1,
+        "courses": 0,
+        "sup": 0,
+        "act": 0,
+        "pending": {
+          "oid": "kn1l1tk",
+          "at": 0.35
+        },
+        "held": [],
+        "cooldown": 0.8128293554048218
+      },
+      {
+        "id": "o6",
+        "tags": [
+          "data",
+          "psycho"
+        ],
+        "needCourses": 2,
+        "needSup": 0,
+        "needAct": 0,
+        "courses": 0,
+        "sup": 0,
+        "act": 0,
+        "pending": null,
+        "held": [
+          "zoxamvv"
+        ],
+        "cooldown": 0.7645869644558982
+      },
+      {
+        "id": "o7",
+        "tags": [
+          "psycho",
+          "health"
+        ],
+        "needCourses": 4,
+        "needSup": 0,
+        "needAct": 1,
+        "courses": 0,
+        "sup": 0,
+        "act": 0,
+        "pending": {
+          "oid": "54awmom",
+          "at": 1.0000000000000002
+        },
+        "held": [],
+        "cooldown": 0.6126186850254286
+      },
+      {
+        "id": "o8",
+        "tags": [
+          "linguistique",
+          "software"
+        ],
+        "needCourses": 4,
+        "needSup": 0,
+        "needAct": 1,
+        "courses": 0,
+        "sup": 0,
+        "act": 0,
+        "pending": {
+          "oid": "2lw6r7d",
+          "at": 0.65
+        },
+        "held": [],
+        "cooldown": 0.5716513428271808
+      },
+      {
+        "id": "o9",
+        "tags": [
+          "gestion",
+          "health"
+        ],
+        "needCourses": 4,
+        "needSup": 1,
+        "needAct": 1,
+        "courses": 0,
+        "sup": 1,
+        "act": 0,
+        "pending": {
+          "oid": "j3u34gp",
+          "at": 3.7999999999999945
+        },
+        "held": [],
+        "cooldown": 0.6213128051791922
+      },
+      {
+        "id": "o10",
+        "tags": [
+          "design",
+          "psycho"
+        ],
+        "needCourses": 3,
+        "needSup": 1,
+        "needAct": 0,
+        "courses": 1,
+        "sup": 0,
+        "act": 0,
+        "pending": null,
+        "held": [],
+        "cooldown": 0.010100638216074057
+      },
+      {
+        "id": "o11",
+        "tags": [
+          "design",
+          "gestion"
+        ],
+        "needCourses": 4,
+        "needSup": 1,
+        "needAct": 0,
+        "courses": 1,
+        "sup": 0,
+        "act": 0,
+        "pending": {
+          "oid": "qwy6te5",
+          "at": 1.850000000000001
+        },
+        "held": [],
+        "cooldown": 0.7541343314821852
+      },
+      {
+        "id": "o12",
+        "tags": [
+          "psycho",
+          "energy"
+        ],
+        "needCourses": 2,
+        "needSup": 0,
+        "needAct": 1,
+        "courses": 0,
+        "sup": 0,
+        "act": 0,
+        "pending": {
+          "oid": "wy0q3sr",
+          "at": 0.9500000000000003
+        },
+        "held": [],
+        "cooldown": 0.7532727700977682
+      },
+      {
+        "id": "o13",
+        "tags": [
+          "design",
+          "systems"
+        ],
+        "needCourses": 4,
+        "needSup": 0,
+        "needAct": 0,
+        "courses": 1,
+        "sup": 0,
+        "act": 0,
+        "pending": {
+          "oid": "y323hi2",
+          "at": 2.549999999999999
+        },
+        "held": [],
+        "cooldown": 0.91739482309378
+      },
+      {
+        "id": "o14",
+        "tags": [
+          "linguistique",
+          "robotics"
+        ],
+        "needCourses": 3,
+        "needSup": 1,
+        "needAct": 1,
+        "courses": 0,
+        "sup": 0,
+        "act": 0,
+        "pending": {
+          "oid": "2lw6r7d",
+          "at": 3.149999999999997
+        },
+        "held": [
+          "b989afu"
+        ],
+        "cooldown": 1.05903784314218
+      },
+      {
+        "id": "o15",
+        "tags": [
+          "linguistique",
+          "robotics"
+        ],
+        "needCourses": 4,
+        "needSup": 1,
+        "needAct": 0,
+        "courses": 0,
+        "sup": 0,
+        "act": 0,
+        "pending": {
+          "oid": "2lw6r7d",
+          "at": 0.15000000000000002
+        },
+        "held": [],
+        "cooldown": 1.0205760057635587
+      },
+      {
+        "id": "o16",
+        "tags": [
+          "health",
+          "linguistique"
+        ],
+        "needCourses": 4,
+        "needSup": 0,
+        "needAct": 0,
+        "courses": 0,
+        "sup": 0,
+        "act": 0,
+        "pending": {
+          "oid": "c2cgop1",
+          "at": 1.1500000000000004
+        },
+        "held": [],
+        "cooldown": 1.1826610439275118
+      },
+      {
+        "id": "o17",
+        "tags": [
+          "gestion",
+          "systems"
+        ],
+        "needCourses": 3,
+        "needSup": 0,
+        "needAct": 0,
+        "courses": 0,
+        "sup": 0,
+        "act": 0,
+        "pending": null,
+        "held": [
+          "j3u34gp"
+        ],
+        "cooldown": 0.770965774588867
+      },
+      {
+        "id": "o18",
+        "tags": [
+          "economie",
+          "linguistique"
+        ],
+        "needCourses": 3,
+        "needSup": 0,
+        "needAct": 0,
+        "courses": 0,
+        "sup": 0,
+        "act": 0,
+        "pending": {
+          "oid": "7hzb4jp",
+          "at": 0.7000000000000001
+        },
+        "held": [],
+        "cooldown": 1.0565926499084486
+      },
+      {
+        "id": "o19",
+        "tags": [
+          "health",
+          "biologie"
+        ],
+        "needCourses": 4,
+        "needSup": 0,
+        "needAct": 0,
+        "courses": 0,
+        "sup": 0,
+        "act": 0,
+        "pending": {
+          "oid": "c2cgop1",
+          "at": 1.2500000000000004
+        },
+        "held": [],
+        "cooldown": 1.1775263803204772
+      },
+      {
+        "id": "o20",
+        "tags": [
+          "gestion",
+          "society"
+        ],
+        "needCourses": 3,
+        "needSup": 1,
+        "needAct": 0,
+        "courses": 0,
+        "sup": 0,
+        "act": 0,
+        "pending": {
+          "oid": "wxpobov",
+          "at": 1.1000000000000003
+        },
+        "held": [],
+        "cooldown": 0.8367739521511844
+      },
+      {
+        "id": "o21",
+        "tags": [
+          "systems",
+          "biologie"
+        ],
+        "needCourses": 3,
+        "needSup": 0,
+        "needAct": 1,
+        "courses": 0,
+        "sup": 0,
+        "act": 0,
+        "pending": {
+          "oid": "q46wrop",
+          "at": 1.3500000000000005
+        },
+        "held": [],
+        "cooldown": 1.0118652531695982
+      },
+      {
+        "id": "o22",
+        "tags": [
+          "software",
+          "biologie"
+        ],
+        "needCourses": 3,
+        "needSup": 0,
+        "needAct": 1,
+        "courses": 0,
+        "sup": 0,
+        "act": 0,
+        "pending": {
+          "oid": "8cujgvg",
+          "at": 1.0500000000000003
+        },
+        "held": [],
+        "cooldown": 0.8386655269749663
+      },
+      {
+        "id": "o23",
+        "tags": [
+          "robotics",
+          "economie"
+        ],
+        "needCourses": 4,
+        "needSup": 1,
+        "needAct": 1,
+        "courses": 0,
+        "sup": 0,
+        "act": 0,
+        "pending": {
+          "oid": "cfst4u4",
+          "at": 0.25
+        },
+        "held": [],
+        "cooldown": 1.111277769522308
+      },
+      {
+        "id": "o24",
+        "tags": [
+          "data",
+          "psycho"
+        ],
+        "needCourses": 4,
+        "needSup": 1,
+        "needAct": 0,
+        "courses": 0,
+        "sup": 0,
+        "act": 0,
+        "pending": {
+          "oid": "sboldl3",
+          "at": 0.9000000000000002
+        },
+        "held": [],
+        "cooldown": 0.8272673387150619
+      },
+      {
+        "id": "o25",
+        "tags": [
+          "software",
+          "health"
+        ],
+        "needCourses": 2,
+        "needSup": 1,
+        "needAct": 0,
+        "courses": 0,
+        "sup": 0,
+        "act": 0,
+        "pending": {
+          "oid": "5mdrlgp",
+          "at": 0.9000000000000002
+        },
+        "held": [],
+        "cooldown": 0.7660569636606128
+      },
+      {
+        "id": "o26",
+        "tags": [
+          "data",
+          "psycho"
+        ],
+        "needCourses": 4,
+        "needSup": 0,
+        "needAct": 0,
+        "courses": 1,
+        "sup": 0,
+        "act": 0,
+        "pending": {
+          "oid": "zoxamvv",
+          "at": 2.8999999999999977
+        },
+        "held": [],
+        "cooldown": 0.6705779618840377
+      },
+      {
+        "id": "o27",
+        "tags": [
+          "economie",
+          "health"
+        ],
+        "needCourses": 4,
+        "needSup": 0,
+        "needAct": 1,
+        "courses": 0,
+        "sup": 0,
+        "act": 0,
+        "pending": {
+          "oid": "0xpy8iw",
+          "at": 1.0500000000000003
+        },
+        "held": [],
+        "cooldown": 1.1790175821962707
+      },
+      {
+        "id": "o28",
+        "tags": [
+          "design",
+          "energy"
+        ],
+        "needCourses": 2,
+        "needSup": 1,
+        "needAct": 0,
+        "courses": 1,
+        "sup": 0,
+        "act": 0,
+        "pending": {
+          "oid": "qwy6te5",
+          "at": 3.2999999999999963
+        },
+        "held": [
+          "y323hi2"
+        ],
+        "cooldown": 0.9929196062643427
+      },
+      {
+        "id": "o29",
+        "tags": [
+          "health",
+          "biologie"
+        ],
+        "needCourses": 2,
+        "needSup": 0,
+        "needAct": 0,
+        "courses": 0,
+        "sup": 0,
+        "act": 0,
+        "pending": {
+          "oid": "c2cgop1",
+          "at": 1.2000000000000004
+        },
+        "held": [],
+        "cooldown": 0.6686983965494804
+      },
+      {
+        "id": "o30",
+        "tags": [
+          "biologie",
+          "systems"
+        ],
+        "needCourses": 4,
+        "needSup": 1,
+        "needAct": 0,
+        "courses": 0,
+        "sup": 0,
+        "act": 0,
+        "pending": {
+          "oid": "1c24cu5",
+          "at": 0.44999999999999996
+        },
+        "held": [],
+        "cooldown": 0.8722436959529579
+      },
+      {
+        "id": "o31",
+        "tags": [
+          "linguistique",
+          "data"
+        ],
+        "needCourses": 2,
+        "needSup": 1,
+        "needAct": 1,
+        "courses": 0,
+        "sup": 0,
+        "act": 0,
+        "pending": {
+          "oid": "b989afu",
+          "at": 0.8000000000000002
+        },
+        "held": [],
+        "cooldown": 0.6166710383750742
+      },
+      {
+        "id": "o32",
+        "tags": [
+          "energy",
+          "economie"
+        ],
+        "needCourses": 3,
+        "needSup": 1,
+        "needAct": 0,
+        "courses": 0,
+        "sup": 0,
+        "act": 0,
+        "pending": {
+          "oid": "qz5r10i",
+          "at": 1.4000000000000006
+        },
+        "held": [],
+        "cooldown": 0.7489179035038496
+      },
+      {
+        "id": "o33",
+        "tags": [
+          "biologie",
+          "society"
+        ],
+        "needCourses": 3,
+        "needSup": 0,
+        "needAct": 1,
+        "courses": 0,
+        "sup": 0,
+        "act": 0,
+        "pending": {
+          "oid": "g9gtx8e",
+          "at": 0.9000000000000002
+        },
+        "held": [],
+        "cooldown": 0.7743597800653563
+      },
+      {
+        "id": "o34",
+        "tags": [
+          "biologie",
+          "linguistique"
+        ],
+        "needCourses": 3,
+        "needSup": 1,
+        "needAct": 0,
+        "courses": 0,
+        "sup": 0,
+        "act": 0,
+        "pending": {
+          "oid": "z3l69yt",
+          "at": 0.05
+        },
+        "held": [],
+        "cooldown": 0.6130343653995908
+      },
+      {
+        "id": "o35",
+        "tags": [
+          "design",
+          "software"
+        ],
+        "needCourses": 4,
+        "needSup": 0,
+        "needAct": 0,
+        "courses": 1,
+        "sup": 0,
+        "act": 0,
+        "pending": {
+          "oid": "y323hi2",
+          "at": 2.3
+        },
+        "held": [],
+        "cooldown": 0.6847998056291891
+      },
+      {
+        "id": "o36",
+        "tags": [
+          "gestion",
+          "linguistique"
+        ],
+        "needCourses": 2,
+        "needSup": 1,
+        "needAct": 0,
+        "courses": 1,
+        "sup": 0,
+        "act": 0,
+        "pending": {
+          "oid": "wxpobov",
+          "at": 2.000000000000001
+        },
+        "held": [],
+        "cooldown": 0.750227487248579
+      },
+      {
+        "id": "o37",
+        "tags": [
+          "society",
+          "health"
+        ],
+        "needCourses": 2,
+        "needSup": 1,
+        "needAct": 1,
+        "courses": 0,
+        "sup": 1,
+        "act": 0,
+        "pending": {
+          "oid": "u41hjv1",
+          "at": 2.1000000000000005
+        },
+        "held": [],
+        "cooldown": 0.6457166673502027
+      },
+      {
+        "id": "o38",
+        "tags": [
+          "society",
+          "psycho"
+        ],
+        "needCourses": 2,
+        "needSup": 0,
+        "needAct": 0,
+        "courses": 0,
+        "sup": 0,
+        "act": 0,
+        "pending": {
+          "oid": "kn1l1tk",
+          "at": 0.7000000000000001
+        },
+        "held": [],
+        "cooldown": 0.5522605421505029
+      },
+      {
+        "id": "o39",
+        "tags": [
+          "design",
+          "systems"
+        ],
+        "needCourses": 4,
+        "needSup": 1,
+        "needAct": 1,
+        "courses": 1,
+        "sup": 0,
+        "act": 0,
+        "pending": {
+          "oid": "qwy6te5",
+          "at": 3.649999999999995
+        },
+        "held": [
+          "y323hi2"
+        ],
+        "cooldown": 0.6574837402121532
+      },
+      {
+        "id": "o40",
+        "tags": [
+          "society",
+          "software"
+        ],
+        "needCourses": 4,
+        "needSup": 1,
+        "needAct": 1,
+        "courses": 0,
+        "sup": 0,
+        "act": 0,
+        "pending": {
+          "oid": "u41hjv1",
+          "at": 0.39999999999999997
+        },
+        "held": [],
+        "cooldown": 0.583460615711552
+      },
+      {
+        "id": "o41",
+        "tags": [
+          "design",
+          "linguistique"
+        ],
+        "needCourses": 2,
+        "needSup": 1,
+        "needAct": 1,
+        "courses": 1,
+        "sup": 0,
+        "act": 0,
+        "pending": null,
+        "held": [
+          "qwy6te5"
+        ],
+        "cooldown": 0.3268600645117975
+      },
+      {
+        "id": "o42",
+        "tags": [
+          "psycho",
+          "energy"
+        ],
+        "needCourses": 3,
+        "needSup": 0,
+        "needAct": 0,
+        "courses": 0,
+        "sup": 0,
+        "act": 0,
+        "pending": {
+          "oid": "s1fhx0t",
+          "at": 3.4499999999999957
+        },
+        "held": [
+          "wy0q3sr"
+        ],
+        "cooldown": 0.5615750492592851
+      },
+      {
+        "id": "o43",
+        "tags": [
+          "gestion",
+          "society"
+        ],
+        "needCourses": 4,
+        "needSup": 1,
+        "needAct": 0,
+        "courses": 0,
+        "sup": 0,
+        "act": 0,
+        "pending": {
+          "oid": "wxpobov",
+          "at": 0.39999999999999997
+        },
+        "held": [],
+        "cooldown": 0.6773730819610408
+      },
+      {
+        "id": "o44",
+        "tags": [
+          "health",
+          "systems"
+        ],
+        "needCourses": 4,
+        "needSup": 0,
+        "needAct": 1,
+        "courses": 0,
+        "sup": 0,
+        "act": 0,
+        "pending": {
+          "oid": "9wlk893",
+          "at": 0.5499999999999999
+        },
+        "held": [],
+        "cooldown": 0.85300540345514
+      },
+      {
+        "id": "o45",
+        "tags": [
+          "data",
+          "society"
+        ],
+        "needCourses": 2,
+        "needSup": 0,
+        "needAct": 0,
+        "courses": 0,
+        "sup": 0,
+        "act": 0,
+        "pending": {
+          "oid": "zoxamvv",
+          "at": 1.4000000000000006
+        },
+        "held": [],
+        "cooldown": 0.9195538309415757
+      },
+      {
+        "id": "o46",
+        "tags": [
+          "gestion",
+          "software"
+        ],
+        "needCourses": 2,
+        "needSup": 0,
+        "needAct": 0,
+        "courses": 0,
+        "sup": 0,
+        "act": 0,
+        "pending": {
+          "oid": "9pntzqn",
+          "at": 0.44999999999999996
+        },
+        "held": [],
+        "cooldown": 0.7611728786158798
+      },
+      {
+        "id": "o47",
+        "tags": [
+          "gestion",
+          "economie"
+        ],
+        "needCourses": 4,
+        "needSup": 1,
+        "needAct": 0,
+        "courses": 0,
+        "sup": 0,
+        "act": 0,
+        "pending": {
+          "oid": "9pntzqn",
+          "at": 0.8500000000000002
+        },
+        "held": [],
+        "cooldown": 1.1786680535886829
+      },
+      {
+        "id": "o48",
+        "tags": [
+          "gestion",
+          "energy"
+        ],
+        "needCourses": 3,
+        "needSup": 0,
+        "needAct": 0,
+        "courses": 1,
+        "sup": 0,
+        "act": 0,
+        "pending": null,
+        "held": [],
+        "cooldown": 0.060990073744627865
+      },
+      {
+        "id": "o49",
+        "tags": [
+          "software",
+          "health"
+        ],
+        "needCourses": 3,
+        "needSup": 0,
+        "needAct": 0,
+        "courses": 0,
+        "sup": 0,
+        "act": 0,
+        "pending": {
+          "oid": "tgwrxw1",
+          "at": 0.44999999999999996
+        },
+        "held": [],
+        "cooldown": 0.6887805718588392
+      },
+      {
+        "id": "o50",
+        "tags": [
+          "data",
+          "gestion"
+        ],
+        "needCourses": 2,
+        "needSup": 1,
+        "needAct": 1,
+        "courses": 0,
+        "sup": 0,
+        "act": 0,
+        "pending": {
+          "oid": "54jidpx",
+          "at": 0.5499999999999999
+        },
+        "held": [],
+        "cooldown": 0.5578954308529995
+      },
+      {
+        "id": "o51",
+        "tags": [
+          "society",
+          "gestion"
+        ],
+        "needCourses": 3,
+        "needSup": 0,
+        "needAct": 1,
+        "courses": 0,
+        "sup": 0,
+        "act": 0,
+        "pending": {
+          "oid": "u41hjv1",
+          "at": 0.9500000000000003
+        },
+        "held": [],
+        "cooldown": 0.5235319138563345
+      },
+      {
+        "id": "o52",
+        "tags": [
+          "robotics",
+          "society"
+        ],
+        "needCourses": 2,
+        "needSup": 0,
+        "needAct": 1,
+        "courses": 0,
+        "sup": 0,
+        "act": 0,
+        "pending": {
+          "oid": "vr4xkps",
+          "at": 1.0500000000000003
+        },
+        "held": [],
+        "cooldown": 0.6350385069917662
+      },
+      {
+        "id": "o53",
+        "tags": [
+          "robotics",
+          "energy"
+        ],
+        "needCourses": 3,
+        "needSup": 0,
+        "needAct": 0,
+        "courses": 0,
+        "sup": 0,
+        "act": 0,
+        "pending": {
+          "oid": "vr4xkps",
+          "at": 0.9500000000000003
+        },
+        "held": [],
+        "cooldown": 0.8837662911843975
+      },
+      {
+        "id": "o54",
+        "tags": [
+          "energy",
+          "software"
+        ],
+        "needCourses": 2,
+        "needSup": 1,
+        "needAct": 0,
+        "courses": 0,
+        "sup": 0,
+        "act": 0,
+        "pending": {
+          "oid": "qz5r10i",
+          "at": 0.05
+        },
+        "held": [],
+        "cooldown": 0.5875991161435588
+      },
+      {
+        "id": "o55",
+        "tags": [
+          "data",
+          "psycho"
+        ],
+        "needCourses": 3,
+        "needSup": 1,
+        "needAct": 0,
+        "courses": 0,
+        "sup": 1,
+        "act": 0,
+        "pending": {
+          "oid": "zoxamvv",
+          "at": 3.2999999999999963
+        },
+        "held": [],
+        "cooldown": 0.8587432668770849
+      },
+      {
+        "id": "o56",
+        "tags": [
+          "software",
+          "gestion"
+        ],
+        "needCourses": 4,
+        "needSup": 1,
+        "needAct": 0,
+        "courses": 0,
+        "sup": 0,
+        "act": 0,
+        "pending": {
+          "oid": "5mdrlgp",
+          "at": 1.3500000000000005
+        },
+        "held": [],
+        "cooldown": 0.5379746511251063
+      },
+      {
+        "id": "o57",
+        "tags": [
+          "software",
+          "energy"
+        ],
+        "needCourses": 4,
+        "needSup": 1,
+        "needAct": 0,
+        "courses": 0,
+        "sup": 1,
+        "act": 0,
+        "pending": {
+          "oid": "8cujgvg",
+          "at": 3.2999999999999963
+        },
+        "held": [],
+        "cooldown": 0.6334970755390759
+      },
+      {
+        "id": "o58",
+        "tags": [
+          "psycho",
+          "society"
+        ],
+        "needCourses": 4,
+        "needSup": 1,
+        "needAct": 0,
+        "courses": 0,
+        "sup": 0,
+        "act": 0,
+        "pending": {
+          "oid": "10ndkq4",
+          "at": 0.5499999999999999
+        },
+        "held": [],
+        "cooldown": 0.649020326548718
+      },
+      {
+        "id": "o59",
+        "tags": [
+          "health",
+          "psycho"
+        ],
+        "needCourses": 4,
+        "needSup": 0,
+        "needAct": 0,
+        "courses": 0,
+        "sup": 0,
+        "act": 0,
+        "pending": {
+          "oid": "c2cgop1",
+          "at": 0.25
+        },
+        "held": [],
+        "cooldown": 1.0390090789547135
+      },
+      {
+        "id": "o60",
+        "tags": [
+          "energy",
+          "linguistique"
+        ],
+        "needCourses": 4,
+        "needSup": 1,
+        "needAct": 0,
+        "courses": 0,
+        "sup": 0,
+        "act": 0,
+        "pending": {
+          "oid": "qz5r10i",
+          "at": 1.2500000000000004
+        },
+        "held": [],
+        "cooldown": 1.0857149475522712
+      },
+      {
+        "id": "o61",
+        "tags": [
+          "gestion",
+          "health"
+        ],
+        "needCourses": 4,
+        "needSup": 1,
+        "needAct": 0,
+        "courses": 1,
+        "sup": 0,
+        "act": 0,
+        "pending": {
+          "oid": "9pntzqn",
+          "at": 2.549999999999999
+        },
+        "held": [],
+        "cooldown": 0.613921058229582
+      },
+      {
+        "id": "o62",
+        "tags": [
+          "systems",
+          "data"
+        ],
+        "needCourses": 2,
+        "needSup": 0,
+        "needAct": 0,
+        "courses": 0,
+        "sup": 0,
+        "act": 0,
+        "pending": {
+          "oid": "8jgnq31",
+          "at": 1.3000000000000005
+        },
+        "held": [],
+        "cooldown": 0.6795855126180941
+      },
+      {
+        "id": "o63",
+        "tags": [
+          "society",
+          "design"
+        ],
+        "needCourses": 3,
+        "needSup": 1,
+        "needAct": 1,
+        "courses": 0,
+        "sup": 0,
+        "act": 0,
+        "pending": {
+          "oid": "u41hjv1",
+          "at": 0.39999999999999997
+        },
+        "held": [],
+        "cooldown": 0.7952880768075296
+      },
+      {
+        "id": "o64",
+        "tags": [
+          "data",
+          "psycho"
+        ],
+        "needCourses": 3,
+        "needSup": 0,
+        "needAct": 1,
+        "courses": 0,
+        "sup": 0,
+        "act": 0,
+        "pending": {
+          "oid": "54jidpx",
+          "at": 0.25
+        },
+        "held": [],
+        "cooldown": 0.6811981252843154
+      },
+      {
+        "id": "o65",
+        "tags": [
+          "robotics",
+          "energy"
+        ],
+        "needCourses": 4,
+        "needSup": 0,
+        "needAct": 0,
+        "courses": 0,
+        "sup": 0,
+        "act": 0,
+        "pending": {
+          "oid": "vr4xkps",
+          "at": 1.3000000000000005
+        },
+        "held": [],
+        "cooldown": 0.5385611680648082
+      },
+      {
+        "id": "o66",
+        "tags": [
+          "energy",
+          "design"
+        ],
+        "needCourses": 2,
+        "needSup": 0,
+        "needAct": 1,
+        "courses": 0,
+        "sup": 0,
+        "act": 0,
+        "pending": {
+          "oid": "fr6un0c",
+          "at": 0.65
+        },
+        "held": [],
+        "cooldown": 1.0323199928215456
+      },
+      {
+        "id": "o67",
+        "tags": [
+          "health",
+          "linguistique"
+        ],
+        "needCourses": 4,
+        "needSup": 1,
+        "needAct": 0,
+        "courses": 0,
+        "sup": 0,
+        "act": 0,
+        "pending": {
+          "oid": "9wlk893",
+          "at": 1.1500000000000004
+        },
+        "held": [],
+        "cooldown": 0.7492246308696011
+      },
+      {
+        "id": "o68",
+        "tags": [
+          "energy",
+          "data"
+        ],
+        "needCourses": 3,
+        "needSup": 1,
+        "needAct": 1,
+        "courses": 0,
+        "sup": 0,
+        "act": 0,
+        "pending": {
+          "oid": "fr6un0c",
+          "at": 0.49999999999999994
+        },
+        "held": [],
+        "cooldown": 1.1369411797210018
+      },
+      {
+        "id": "o69",
+        "tags": [
+          "energy",
+          "psycho"
+        ],
+        "needCourses": 4,
+        "needSup": 0,
+        "needAct": 0,
+        "courses": 0,
+        "sup": 0,
+        "act": 0,
+        "pending": {
+          "oid": "0uis2ig",
+          "at": 1.4000000000000006
+        },
+        "held": [],
+        "cooldown": 0.9049105078541968
+      },
+      {
+        "id": "o70",
+        "tags": [
+          "robotics",
+          "systems"
+        ],
+        "needCourses": 2,
+        "needSup": 0,
+        "needAct": 1,
+        "courses": 0,
+        "sup": 0,
+        "act": 0,
+        "pending": {
+          "oid": "vr4xkps",
+          "at": 0.7000000000000001
+        },
+        "held": [],
+        "cooldown": 1.0666704366734632
+      },
+      {
+        "id": "o71",
+        "tags": [
+          "economie",
+          "society"
+        ],
+        "needCourses": 2,
+        "needSup": 0,
+        "needAct": 0,
+        "courses": 0,
+        "sup": 0,
+        "act": 0,
+        "pending": {
+          "oid": "9iun6jd",
+          "at": 1.1000000000000003
+        },
+        "held": [],
+        "cooldown": 1.1119917879354473
+      },
+      {
+        "id": "o72",
+        "tags": [
+          "biologie",
+          "society"
+        ],
+        "needCourses": 4,
+        "needSup": 1,
+        "needAct": 0,
+        "courses": 0,
+        "sup": 0,
+        "act": 0,
+        "pending": {
+          "oid": "1c24cu5",
+          "at": 1.2000000000000004
+        },
+        "held": [],
+        "cooldown": 0.8774772273901827
+      },
+      {
+        "id": "o73",
+        "tags": [
+          "psycho",
+          "software"
+        ],
+        "needCourses": 4,
+        "needSup": 0,
+        "needAct": 1,
+        "courses": 0,
+        "sup": 0,
+        "act": 0,
+        "pending": {
+          "oid": "wy0q3sr",
+          "at": 1.2500000000000004
+        },
+        "held": [],
+        "cooldown": 1.1189858651476605
+      },
+      {
+        "id": "o74",
+        "tags": [
+          "biologie",
+          "linguistique"
+        ],
+        "needCourses": 2,
+        "needSup": 1,
+        "needAct": 0,
+        "courses": 0,
+        "sup": 0,
+        "act": 0,
+        "pending": {
+          "oid": "z3l69yt",
+          "at": 1.5000000000000007
+        },
+        "held": [],
+        "cooldown": 0.8429856267951865
+      },
+      {
+        "id": "o75",
+        "tags": [
+          "systems",
+          "data"
+        ],
+        "needCourses": 2,
+        "needSup": 0,
+        "needAct": 1,
+        "courses": 0,
+        "sup": 0,
+        "act": 0,
+        "pending": {
+          "oid": "yz1st5m",
+          "at": 1.2500000000000004
+        },
+        "held": [],
+        "cooldown": 0.719833103328523
+      },
+      {
+        "id": "o76",
+        "tags": [
+          "economie",
+          "gestion"
+        ],
+        "needCourses": 4,
+        "needSup": 1,
+        "needAct": 1,
+        "courses": 0,
+        "sup": 1,
+        "act": 0,
+        "pending": {
+          "oid": "9iun6jd",
+          "at": 3.699999999999995
+        },
+        "held": [],
+        "cooldown": 0.9812671017954848
+      },
+      {
+        "id": "o77",
+        "tags": [
+          "psycho",
+          "society"
+        ],
+        "needCourses": 3,
+        "needSup": 0,
+        "needAct": 0,
+        "courses": 0,
+        "sup": 0,
+        "act": 0,
+        "pending": {
+          "oid": "wy0q3sr",
+          "at": 0.7000000000000001
+        },
+        "held": [],
+        "cooldown": 0.7420159795594891
+      },
+      {
+        "id": "o78",
+        "tags": [
+          "biologie",
+          "design"
+        ],
+        "needCourses": 4,
+        "needSup": 1,
+        "needAct": 0,
+        "courses": 0,
+        "sup": 0,
+        "act": 0,
+        "pending": {
+          "oid": "1c24cu5",
+          "at": 0.1
+        },
+        "held": [],
+        "cooldown": 0.6070171555658319
+      },
+      {
+        "id": "o79",
+        "tags": [
+          "gestion",
+          "design"
+        ],
+        "needCourses": 2,
+        "needSup": 1,
+        "needAct": 0,
+        "courses": 0,
+        "sup": 0,
+        "act": 0,
+        "pending": {
+          "oid": "wxpobov",
+          "at": 1.0500000000000003
+        },
+        "held": [],
+        "cooldown": 1.0601984612343331
+      },
+      {
+        "id": "o80",
+        "tags": [
+          "design",
+          "software"
+        ],
+        "needCourses": 3,
+        "needSup": 0,
+        "needAct": 1,
+        "courses": 1,
+        "sup": 0,
+        "act": 0,
+        "pending": {
+          "oid": "y323hi2",
+          "at": 2.799999999999998
+        },
+        "held": [],
+        "cooldown": 0.5397074186127823
+      },
+      {
+        "id": "o81",
+        "tags": [
+          "software",
+          "systems"
+        ],
+        "needCourses": 2,
+        "needSup": 0,
+        "needAct": 1,
+        "courses": 0,
+        "sup": 0,
+        "act": 0,
+        "pending": {
+          "oid": "5mdrlgp",
+          "at": 1.1500000000000004
+        },
+        "held": [],
+        "cooldown": 0.5283833035144305
+      },
+      {
+        "id": "o82",
+        "tags": [
+          "data",
+          "psycho"
+        ],
+        "needCourses": 3,
+        "needSup": 1,
+        "needAct": 1,
+        "courses": 0,
+        "sup": 0,
+        "act": 0,
+        "pending": {
+          "oid": "sboldl3",
+          "at": 1.5000000000000007
+        },
+        "held": [],
+        "cooldown": 0.8244125439868129
+      },
+      {
+        "id": "o83",
+        "tags": [
+          "design",
+          "linguistique"
+        ],
+        "needCourses": 3,
+        "needSup": 1,
+        "needAct": 1,
+        "courses": 1,
+        "sup": 0,
+        "act": 0,
+        "pending": {
+          "oid": "y323hi2",
+          "at": 1.5000000000000007
+        },
+        "held": [],
+        "cooldown": 0.9039196506088658
+      },
+      {
+        "id": "o84",
+        "tags": [
+          "linguistique",
+          "psycho"
+        ],
+        "needCourses": 4,
+        "needSup": 1,
+        "needAct": 0,
+        "courses": 0,
+        "sup": 0,
+        "act": 0,
+        "pending": {
+          "oid": "gt4an9e",
+          "at": 0.49999999999999994
+        },
+        "held": [],
+        "cooldown": 0.7421004982012477
+      },
+      {
+        "id": "o85",
+        "tags": [
+          "gestion",
+          "data"
+        ],
+        "needCourses": 2,
+        "needSup": 0,
+        "needAct": 1,
+        "courses": 0,
+        "sup": 0,
+        "act": 0,
+        "pending": {
+          "oid": "j3u34gp",
+          "at": 1.5000000000000007
+        },
+        "held": [],
+        "cooldown": 0.9117768000021456
+      },
+      {
+        "id": "o86",
+        "tags": [
+          "data",
+          "society"
+        ],
+        "needCourses": 3,
+        "needSup": 0,
+        "needAct": 0,
+        "courses": 0,
+        "sup": 0,
+        "act": 0,
+        "pending": {
+          "oid": "54jidpx",
+          "at": 1.3000000000000005
+        },
+        "held": [],
+        "cooldown": 1.1337818182526245
+      },
+      {
+        "id": "o87",
+        "tags": [
+          "design",
+          "data"
+        ],
+        "needCourses": 3,
+        "needSup": 0,
+        "needAct": 1,
+        "courses": 0,
+        "sup": 0,
+        "act": 0,
+        "pending": {
+          "oid": "qwy6te5",
+          "at": 3.2499999999999964
+        },
+        "held": [
+          "y323hi2"
+        ],
+        "cooldown": 0.9092240958290156
+      }
+    ],
+    "adminCredit": 0.2800000000000342,
+    "adminCapacity": 28,
+    "me": {
+      "id": "me",
+      "tags": [
+        "psycho",
+        "robotics",
+        "energy"
+      ],
+      "needCourses": 3,
+      "needSup": 2,
+      "needAct": 1,
+      "programCredits": 90,
+      "transcript": [],
+      "feedback": {},
+      "affinity": {
+        "fields": {},
+        "kinds": {}
+      },
+      "profile": {
+        "focus": 55,
+        "applied": 50,
+        "work": 40,
+        "hours": 30
+      },
+      "courses": 0,
+      "sup": 2,
+      "act": 0,
+      "confirmed": [
+        {
+          "oid": "10ndkq4",
+          "wk": 1
+        },
+        {
+          "oid": "cfst4u4",
+          "wk": 1
+        }
+      ],
+      "held": [],
+      "pending": [],
+      "tries": 2,
+      "lapses": 0
+    },
+    "calSeen": {},
+    "calendar": [
+      {
+        "id": "c1",
+        "date": "2026-09-01",
+        "type": "rentree",
+        "fr": {
+          "label": "Rentrée des personnes étudiantes pour la plupart des facultés.",
+          "note": "Faculté de l'aménagement, Faculté des arts et des sciences et Faculté de droit : vérifiez votre calendrier facultaire."
+        },
+        "en": {
+          "label": "Start of term for most faculties.",
+          "note": "Faculté de l'aménagement, Faculté des arts et des sciences and Faculté de droit: check your faculty calendar."
+        }
+      },
+      {
+        "id": "c2",
+        "date": "2026-09-07",
+        "type": "conge",
+        "fr": {
+          "label": "Congé universitaire — Fête du Travail"
+        },
+        "en": {
+          "label": "University holiday — Labour Day"
+        }
+      },
+      {
+        "id": "c3",
+        "date": "2026-09-16",
+        "type": "limite",
+        "fr": {
+          "label": "Date limite pour modification ou annulation de choix de cours"
+        },
+        "en": {
+          "label": "Deadline to change or cancel course selection"
+        }
+      },
+      {
+        "id": "c4",
+        "date": "2026-09-30",
+        "type": "conge",
+        "fr": {
+          "label": "Congé universitaire — Journée nationale de la vérité et de la réconciliation"
+        },
+        "en": {
+          "label": "University holiday — National Day for Truth and Reconciliation"
+        }
+      },
+      {
+        "id": "c5",
+        "date": "2026-10-12",
+        "type": "conge",
+        "fr": {
+          "label": "Congé universitaire — Action de grâce"
+        },
+        "en": {
+          "label": "University holiday — Thanksgiving"
+        }
+      },
+      {
+        "id": "c6",
+        "date": "2026-10-19",
+        "end": "2026-10-25",
+        "type": "periode",
+        "fr": {
+          "label": "Période d'activités libres dans certaines unités"
+        },
+        "en": {
+          "label": "Reading week in some units"
+        }
+      },
+      {
+        "id": "c7",
+        "date": "2026-11-06",
+        "type": "limite",
+        "fr": {
+          "label": "Date limite pour l'abandon (avec frais) d'un cours"
+        },
+        "en": {
+          "label": "Deadline to withdraw from a course (fees apply)"
+        }
+      },
+      {
+        "id": "c8",
+        "date": "2026-12-23",
+        "type": "fin",
+        "fr": {
+          "label": "Fin du trimestre"
+        },
+        "en": {
+          "label": "End of term"
+        }
+      },
+      {
+        "id": "c9",
+        "date": "2026-12-24",
+        "end": "2027-01-04",
+        "type": "conge",
+        "fr": {
+          "label": "Congés universitaires — Fêtes de fin d'année"
+        },
+        "en": {
+          "label": "University holidays — Year-end break"
+        }
+      }
+    ],
+    "termStart": "2026-09-01T04:00:00.000Z",
+    "terms": [
+      {
+        "id": "t0",
+        "live": true,
+        "req": {
+          "courses": 3,
+          "supervised": 2,
+          "activities": 1,
+          "programCredits": 90
+        },
+        "intents": []
+      },
+      {
+        "id": "t1",
+        "live": false,
+        "req": {
+          "courses": 3,
+          "supervised": 0,
+          "activities": 1
+        },
+        "intents": []
+      },
+      {
+        "id": "t2",
+        "live": false,
+        "req": {
+          "courses": 1,
+          "supervised": 1,
+          "activities": 0
+        },
+        "intents": []
+      },
+      {
+        "id": "t3",
+        "live": false,
+        "req": {
+          "courses": 3,
+          "supervised": 1,
+          "activities": 1
+        },
+        "intents": []
+      }
+    ],
+    "tuning": {
+      "disengageBacklog": 10,
+      "disengageDepth": 0.65,
+      "popularityGain": 1.83,
+      "adminShare": 0.76
+    },
+    "_seen": {
+      "nk8nafuf": true,
+      "nmjtf2w1": true,
+      "ncfst4u4": true,
+      "njpuv9e2": true,
+      "nksi0f7t": true,
+      "n10ndkq4": true,
+      "nwi5mqri": true,
+      "nb989afu": true,
+      "nwxpobov": true
+    }
+  }
+}

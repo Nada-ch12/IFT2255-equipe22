@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cheminement — prototype de démonstration (IFT2255, phase 1)</title>
+<link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+<header class="barre">
+  <div class="marque">
+    <strong>Cheminement</strong>
+    <span class="sous">Prototype de démonstration du système visé</span>
+  </div>
+  <div class="horloge" id="horloge" aria-live="polite"></div>
+  <div class="actions-globales">
+    <button type="button" data-action="avancer" id="btn-avancer">Avancer d'une semaine</button>
+    <button type="button" class="discret" data-action="profil">Modifier le profil</button>
+    <button type="button" class="discret" data-action="reinitialiser">Réinitialiser la démo</button>
+  </div>
+</header>
+<p class="bandeau-sim" role="note">
+  <span class="pastille-sim">Simulation</span>
+  Données fictives. Les réponses de la scolarité et des responsables, l'évolution des places et l'horloge sont simulées ;
+  aucune place officielle n'est demandée, réservée ni confirmée. Les dates reprennent l'affichage du prototype de référence et ne sont pas vérifiées.
+</p>
+<div id="alertes" class="alertes" aria-live="polite"></div>
+
+<main class="grille">
+  <aside class="plan" id="plan" aria-label="Mon plan Automne 2026"></aside>
+  <section class="monde">
+    <nav class="onglets" role="tablist" aria-label="Vues">
+      <button role="tab" data-onglet="offres" aria-selected="true">Offres</button>
+      <button role="tab" data-onglet="demandes">Mes demandes</button>
+      <button role="tab" data-onglet="echeances">Échéances</button>
+      <button role="tab" data-onglet="sessions">Sessions futures</button>
+      <button role="tab" data-onglet="responsable">Vue responsable <em>(simulée)</em></button>
+      <button role="tab" data-onglet="journal">Journal</button>
+      <button role="tab" data-onglet="bilan">Bilan</button>
+      <button role="tab" data-onglet="export">Exporter</button>
+    </nav>
+    <div id="vue" class="vue"></div>
+  </section>
+</main>
+
+<div id="ecran-profil" class="ecran-profil" hidden></div>
+
+<dialog id="dlg-impact" aria-labelledby="impact-titre"></dialog>
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+<script src="js/data.js"></script>
+<script src="js/rules.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
