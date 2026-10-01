@@ -1,3 +1,3 @@
-# Rapport
+# Rapport — Phase 1
 
-À déposer : `Rapport_Phase1_Equipe22.pdf` (version remise le 2 octobre 2026).
+`Rapport_Phase1_Equipe22.pdf` : rapport d'analyse et de conception (version finale du 1er octobre 2026).
