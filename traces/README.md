@@ -7,8 +7,8 @@ Une capture et l'export pris au même moment de la même simulation portent le m
 
 | Dossier | Personne | Thème | État |
 |---|---|---|---|
-| `P1/` | Nada Chiki | Cours, préalables, retrait, clôture, parcours réel | À déposer |
-| `P2/` | Ismail Mohib | Encadrants et traitement des demandes | À déposer |
+| `P1/` | Nada Chiki | Cours, préalables, retrait, clôture, parcours réel | Captures et exports déposés (voir `P1/README.md`) |
+| `P2/` | Ismail Mohib | Encadrants et traitement des demandes | Captures et exports déposés (voir `P2/README.md`) |
 | `P3/` | Hamza Khalil | Préférences et planification multi-sessions | Exports déposés (`json/`) |
 | `P4/` | Mohamed Driss | Contraintes : crédits, charge, temps plein, stages, concours, calendrier | Captures et exports déposés |
 

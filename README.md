@@ -141,7 +141,7 @@ Déclarés conformément à l'énoncé. L'enquête (manipulation du prototype, p
 
 | Outil | Utilisé par | Pour quelles parties |
 |---|---|---|
-| **Claude (Anthropic)** | Ismail Mohib | Code initial du prototype et de ses tests ; sources de diagrammes ; base de rédaction du rapport, à partir de relevés d'exploration |
+| **ChatGPT (OpenAI)** et **Claude (Anthropic, Sonnet 5.5)**, 29–30 sept. 2026 | Ismail Mohib | Code initial du prototype et de ses tests ; base de rédaction du rapport ; organisation et reformulation des résultats de ses tests (demandes, encadrants) ; résumé des observations et vérification de leur cohérence avec les captures et exports ; aide à la structure des diagrammes A1, A2, A3 (idées de flux, cohérence avec le rapport) ; raccourcissement de textes. Faits par lui et l'équipe : tests du prototype, captures et exports, décisions de conception, réalisation et vérification finales des diagrammes, questions au conseiller et autres sources d'enquête |
 | **Claude (Anthropic, Claude Code)** | Mohamed Driss | Exploration guidée du prototype de référence ; scripts de test automatisés (Playwright) ayant rejoué les simulations P4 et produit les captures et exports de `traces/P4/` ; adaptation du prototype au rapport final (E3, E8, E9, E10, E12, E13, E14) et nouveaux tests ; rédaction de ce README et des blocs P4 ; corrections du diagramme A2.3 dans Visual Paradigm |
 | **Playwright + Microsoft Edge** | Mohamed Driss | Rejeu automatisé des scénarios P4 (captures et exports) ; test de bout en bout du prototype |
 | **Visual Paradigm** | Équipe | Diagrammes A1, A2, A3 |
