@@ -1,0 +1,83 @@
+@startuml B2-Modele_Domaine
+!pragma layout smetana
+title Modèle du domaine (concepts du problème, sans méthodes)
+skinparam defaultFontName Arial
+hide circle
+hide methods
+skinparam classAttributeIconSize 0
+
+class "Étudiant" as Etudiant {
+  matricule
+  disponibilité hebdomadaire
+}
+class "Relevé de notes" as Releve {
+  cours réussis
+  date
+}
+class "Programme" as Programme {
+  nom
+  crédits requis
+}
+class "Règle du programme" as Regle {
+  description
+}
+class "Bloc" as Bloc {
+  nom
+  crédits minimum
+}
+class "Cours" as Cours {
+  sigle
+  crédits
+  préalables
+}
+class "Projet" as Projet {
+  sujet
+}
+class "Stage" as Stage {
+  période
+}
+class "Séminaire / concours" as Seminaire {
+  date
+}
+class "Organisation" as Organisation {
+  nom
+}
+class "Encadrant" as Encadrant {
+  nom
+}
+class "Plan de session" as Plan {
+  session
+}
+class "Demande" as Demande {
+  date
+  statut
+}
+class "Offre du tiers" as Offre {
+  conditions
+  échéance
+}
+class "Intention future" as Intention {
+  session visée
+}
+class "Session" as Session {
+  code
+  dates
+}
+
+Etudiant "1" -- "0..1" Releve
+Etudiant "*" -- "1" Programme : inscrit à
+Programme "1" -- "*" Regle
+Programme "1" -- "*" Bloc
+Bloc "*" -- "*" Cours
+Etudiant "1" -- "*" Plan
+Plan "*" -- "1" Session
+Plan "1" -- "*" Demande
+Demande "*" -- "1" Cours : vise >
+Demande "*" -- "0..1" Projet : ou vise >
+Demande "1" -- "0..1" Offre : reçoit >
+Etudiant "1" -- "*" Intention
+Intention "*" -- "1" Cours
+Organisation "1" -- "*" Stage
+Encadrant "1" -- "*" Projet
+Organisation "1" -- "*" Seminaire
+@enduml

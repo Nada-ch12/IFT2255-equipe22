@@ -1,0 +1,30 @@
+@startuml A3-C4-Niveau1_revise
+!pragma layout smetana
+!include <C4/C4_Context>
+LAYOUT_TOP_DOWN()
+title A3 (révisé) — C4 niveau 1 : contexte de la plateforme de planification des études
+
+Person(etu, "Personne étudiante", "Planifie ses études : profil, choix, demandes, intentions futures")
+Person(enc, "Personne qui encadre", "Répond aux demandes qui lui sont adressées (projet, laboratoire, stage)")
+Person(org, "Laboratoires et organisations", "Publient leurs offres (postes, stages, projets) avec un compte invité")
+Person(cp, "Conseil de programme", "Seul à définir et versionner les règles du programme")
+
+System(plat, "Plateforme de planification des études", "Compare les activités, vérifie les choix, suit les demandes, prépare les sessions futures")
+
+System_Ext(idp, "Fournisseur d'identité de l'Université", "Connexion unique (SSO)")
+System_Ext(planif, "Répertoire des cours (API Planifium)", "Cours, exigences, programmes, horaires — instantané daté")
+System_Ext(reg, "Registrariat", "Relevé de notes ; statut officiel d'inscription")
+System_Ext(cal, "Calendrier universitaire", "Dates officielles, dates d'abandon")
+System_Ext(mail, "Service de courriel de l'Université", "Envoi des alertes")
+
+Rel(etu, plat, "Planifie, demande, répond aux offres", "Web HTTPS")
+Rel(enc, plat, "Répond aux demandes", "Web HTTPS")
+Rel(org, plat, "Publie et ferme ses offres", "Web HTTPS")
+Rel(cp, plat, "Définit les règles du programme", "Web HTTPS")
+
+Rel(plat, idp, "Vérifie l'identité des utilisateurs", "OpenID Connect")
+Rel(plat, planif, "Lit cours, exigences et horaires", "REST / JSON")
+Rel(plat, reg, "Importe le relevé fourni par l'étudiant", "Fichier")
+Rel(plat, cal, "Importe les dates officielles", "Fichier")
+Rel(plat, mail, "Envoie les alertes urgentes", "SMTP")
+@enduml

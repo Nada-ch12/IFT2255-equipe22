@@ -1,0 +1,33 @@
+@startuml A3-C4-Niveau2_revise
+!pragma layout smetana
+!include <C4/C4_Container>
+LAYOUT_TOP_DOWN()
+title A3 (révisé) — C4 niveau 2 : conteneurs (ajouts : identité, synchronisation, notifications)
+
+Person(user, "Utilisateurs", "Étudiant, encadrant, organisation, conseil de programme")
+
+System_Boundary(plat, "Plateforme de planification des études") {
+  Container(web, "Application web", "React", "Affiche profil, catalogue, plan, demandes, échéances, notifications et provenance des données")
+  Container(api, "API REST", "Node.js, Express", "Contrôle d'accès ; applique les règles ; gère demandes, plans, synchronisation et notifications")
+  ContainerDb(db, "Base de données", "PostgreSQL", "État, historique, rôles, copies datées des sources, notifications, journal")
+  Container(cron, "Planificateur", "cron", "Chaque nuit : synchronisation ; chaque heure : expirations et rappels d'échéance")
+  Container(conn, "Connecteurs d'import", "Node.js", "Client Planifium ; import des fichiers (relevé, calendrier) ; contrôle et provenance")
+}
+
+System_Ext(idp, "Fournisseur d'identité", "SSO de l'Université")
+System_Ext(planif, "API Planifium", "Répertoire des cours")
+System_Ext(files, "Registrariat / Calendrier", "Fichiers importés")
+System_Ext(mail, "Service de courriel", "Université")
+
+Rel(user, web, "Utilise", "HTTPS")
+Rel(web, idp, "Connexion de l'utilisateur", "OpenID Connect")
+Rel(web, api, "Envoie les actions avec le jeton ; lit les notifications", "JSON / HTTPS")
+Rel(api, idp, "Valide le jeton", "OpenID Connect")
+Rel(api, db, "Lit et écrit", "SQL")
+Rel(cron, api, "Déclenche synchronisation, expirations, rappels", "REST")
+Rel(api, conn, "Lance un import ou une synchronisation", "Appel interne")
+Rel(conn, planif, "Lit cours, exigences, horaires", "REST / JSON")
+Rel(conn, files, "Lit les fichiers importés", "Fichier")
+Rel(conn, db, "Écrit les copies datées et leur provenance", "SQL")
+Rel(api, mail, "Envoie les alertes urgentes", "SMTP")
+@enduml

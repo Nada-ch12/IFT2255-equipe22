@@ -1,0 +1,60 @@
+@startuml A2-1_revise
+title A2.1 (révisé) — Ajouter une activité après vérification des contraintes\nFiche 1 « Demander une activité » + Fiche 2 « Vérifier les contraintes » — fin de succès : demande « en attente »
+skinparam defaultFontName Arial
+skinparam ActivityBackgroundColor #FFFFFF
+skinparam swimlaneWidth same
+
+|Personne étudiante|
+start
+:Choisir une activité dans le catalogue;
+:Cliquer sur « Demander »;
+
+|Plateforme|
+if (Case du bon type libre\net place disponible\n(selon la dernière synchronisation) ?) then (non)
+  |Personne étudiante|
+  :Voir le motif\n(case indisponible ou places épuisées);
+  stop
+else (oui)
+endif
+
+|Plateforme|
+:Lire les exigences du cours\n(copie datée du répertoire);
+
+|Répertoire des cours\n(API Planifium)|
+:Fournir « requirements »\net « updated_at »;
+
+|Plateforme|
+:Évaluer les préalables\navec le relevé connu;
+if (Résultat des préalables ?) then (non satisfait)
+  |Personne étudiante|
+  :Voir le préalable manquant\net les alternatives (E13);
+  stop
+elseif (impossible à vérifier\n(manual / unknown /\nrelevé incomplet)) then
+  |Personne étudiante|
+  :Voir l'avertissement\n« préalable impossible à vérifier »;
+  |Plateforme|
+else (satisfait)
+endif
+
+:Calculer l'effet sur les crédits et la charge\n(en tenant compte des demandes déjà en attente);
+if (Plafond de crédits, charge\nou bloc dépassés ?) then (oui)
+  |Personne étudiante|
+  :Voir les contraintes dépassées;
+  if (Décision ?) then (ajuster mon choix)
+    stop
+  else (garder en brouillon)
+    |Plateforme|
+    :Enregistrer un brouillon\n(contraintes visibles, rien n'est envoyé);
+    stop
+  endif
+else (non)
+endif
+
+|Plateforme|
+:Enregistrer la demande\nau statut « en attente »;
+:Afficher crédits et charge\ncomme « en demande »\n(pas « confirmés »);
+:Transmettre la demande au tiers\n(suite : A2.2 / Fiche 3);
+|Personne étudiante|
+:Voir la demande « en attente »;
+stop
+@enduml

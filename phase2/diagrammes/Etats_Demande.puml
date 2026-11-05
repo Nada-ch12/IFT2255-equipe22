@@ -1,0 +1,32 @@
+@startuml Etats_Demande
+title Modèle d'états d'une demande (unique pour A1, A2, B1, B2, B3)
+skinparam defaultFontName Arial
+hide empty description
+
+[*] --> EN_ATTENTE : soumettre()\n[contraintes vérifiées]\nFiche 1 / A2.1
+EN_ATTENTE --> OFFRE_RECUE : le tiers accepte\nFiche 3 / A2.2
+EN_ATTENTE --> REFUSEE : le tiers refuse
+EN_ATTENTE --> EXPIREE : échéance de réponse passée\n(planificateur)
+EN_ATTENTE --> ANNULEE : l'étudiant retire sa demande
+OFFRE_RECUE --> CONFIRMEE : l'étudiant accepte l'offre
+OFFRE_RECUE --> DECLINEE : l'étudiant refuse l'offre
+OFFRE_RECUE --> EXPIREE : échéance de l'offre passée
+CONFIRMEE --> RETIREE : retrait confirmé\nFiche 5 / A2.3
+
+REFUSEE --> [*]
+EXPIREE --> [*]
+ANNULEE --> [*]
+DECLINEE --> [*]
+RETIREE --> [*]
+
+note right of CONFIRMEE
+  Seul état où les crédits
+  sont comptés « en cours ».
+  Ce n'est pas une inscription
+  officielle au Registrariat.
+end note
+note left of EN_ATTENTE
+  Crédits affichés
+  « en demande »
+end note
+@enduml

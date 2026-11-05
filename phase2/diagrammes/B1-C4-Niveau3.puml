@@ -1,0 +1,67 @@
+@startuml B1-C4-Niveau3
+!pragma layout smetana
+!include <C4/C4_Component>
+LAYOUT_TOP_DOWN()
+title B1 — C4 niveau 3 : composants de l'API REST (et des connecteurs d'import)
+
+Container(web, "Application web", "React", "Interface des utilisateurs")
+Container(cron, "Planificateur", "cron", "Déclencheur périodique")
+ContainerDb(db, "Base de données", "PostgreSQL")
+System_Ext(idp, "Fournisseur d'identité", "SSO")
+System_Ext(mail, "Service de courriel", "SMTP")
+System_Ext(planif, "API Planifium", "Répertoire des cours")
+
+Container_Boundary(api, "API REST (Node.js, Express)") {
+  Component(rout, "Routeur REST", "Express", "Reçoit chaque requête HTTP et la dirige vers le bon service.")
+  Component(acces, "Contrôle d'accès", "Middleware", "Vérifie le jeton et applique la matrice des droits par rôle et par propriétaire.")
+  Component(profil, "Service Profil et suggestions", "Module", "Gère le profil, les préférences, les appréciations et explique les suggestions.")
+  Component(cata, "Service Catalogue", "Module", "Réunit les cours copiés de Planifium et les offres des organisations en un catalogue commun.")
+  Component(plan, "Service Plan", "Module", "Gère le plan de session, les intentions futures et les compteurs de crédits séparés.")
+  Component(regles, "Moteur de règles du programme", "Module", "Évalue préalables, plafond, charge, blocs et temps plein avec un résultat à trois valeurs.")
+  Component(dem, "Service Demandes", "Module", "Fait évoluer chaque demande selon le modèle d'états et garde son historique.")
+  Component(ech, "Service Échéances et retraits", "Module", "Fournit les dates utiles et calcule les conséquences d'un retrait.")
+  Component(notif, "Service Notifications", "Module", "Crée une notification par événement, sans doublon, et envoie les urgentes par courriel.")
+  Component(sync, "Service Synchronisation", "Module", "Compare les nouvelles copies aux anciennes et lance le réexamen des plans touchés.")
+  Component(bilan, "Service Bilan", "Module", "Produit le bilan de fin de période : satisfait, incomplet, incertain.")
+  Component(depots, "Dépôts de données", "Module SQL", "Lit et écrit les entités et leur historique dans la base.")
+}
+
+Container_Boundary(conn, "Connecteurs d'import (Node.js)") {
+  Component(cliP, "Client Planifium", "Adaptateur REST", "Appelle Planifium et traduit ses réponses en copies datées avec leur statut.")
+  Component(impF, "Importeur de fichiers", "Module", "Lit le relevé et le calendrier, vérifie leur format et note leur provenance.")
+}
+
+Rel(web, rout, "Envoie les actions", "JSON / HTTPS")
+Rel(rout, acces, "Fait vérifier chaque requête")
+Rel(acces, idp, "Valide le jeton", "OpenID Connect")
+Rel(rout, profil, "Profil, appréciations")
+Rel(rout, cata, "Recherche d'activités")
+Rel(rout, plan, "Ajout, retrait, intention")
+Rel(rout, dem, "Soumission, réponse, acceptation, expiration")
+Rel(rout, ech, "Consultation des échéances, rappels")
+Rel(rout, bilan, "Demande de bilan")
+Rel(rout, sync, "Lance la synchronisation")
+Rel(plan, regles, "Fait évaluer le plan modifié")
+Rel(dem, regles, "Fait vérifier avant soumission")
+Rel(regles, cata, "Lit exigences et crédits")
+Rel(dem, plan, "Met à jour l'état d'une case")
+Rel(plan, ech, "Demande les conséquences d'un retrait")
+Rel(dem, notif, "Signale un changement d'état")
+Rel(sync, plan, "Marque les intentions à réexaminer")
+Rel(sync, notif, "Signale un changement d'offre")
+Rel(ech, notif, "Crée les rappels d'échéance")
+Rel(bilan, plan, "Lit plan et intentions")
+Rel(bilan, regles, "Lit exigences restantes")
+Rel(profil, cata, "Classe les activités")
+Rel(cron, rout, "Déclenche synchronisation, expirations, rappels", "REST")
+Rel(sync, cliP, "Demande une nouvelle copie")
+Rel(sync, impF, "Demande un import")
+Rel(cliP, planif, "Lit cours, exigences, horaires", "REST / JSON")
+Rel(notif, mail, "Envoie les alertes urgentes", "SMTP")
+Rel(depots, db, "Lit et écrit", "SQL")
+Rel(cliP, db, "Écrit les copies datées", "SQL")
+Rel(impF, db, "Écrit relevé et dates importés", "SQL")
+Rel_D(plan, depots, "Persiste")
+Rel_D(dem, depots, "Persiste")
+Rel_D(notif, depots, "Persiste")
+@enduml

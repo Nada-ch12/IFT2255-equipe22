@@ -1,0 +1,149 @@
+@startuml B2-Classes_Principal
+!pragma layout smetana
+title B2 — Diagramme de classes : vue principale (15 classes)
+skinparam defaultFontName Arial
+skinparam classAttributeIconSize 0
+
+package "Service Profil et suggestions" {
+  class Etudiant {
+    - matricule : String
+    - disponibiliteHebdo : int
+    - coursReussis : List<String>
+    - releveImporteLe : Date [0..1]
+    + estReleveComplet() : boolean
+    + aReussi(sigle : String) : boolean
+  }
+}
+
+package "Service Catalogue" {
+  abstract class Activite {
+    # id : String
+    # titre : String
+    # credits : int
+    # chargeHebdo : int
+    # provenance : Provenance
+    + {abstract} getType() : TypeActivite
+    + placesDisponibles() : int [0..1]
+  }
+  class Cours {
+    - sigle : String
+    - exigencesBrutes : String
+    - statutAnalyse : StatutAnalyse
+    - capacite : int [0..1]
+    - inscrits : int [0..1]
+    - copieDu : Date
+    + getType() : TypeActivite
+    + placesDisponibles() : int [0..1]
+    + sigleDesPrealables() : List<String>
+  }
+  class OffreActivite {
+    - type : TypeActivite
+    - organisation : String
+    - places : int
+    - dateLimiteCandidature : Date [0..1]
+    - ouverte : boolean
+    + getType() : TypeActivite
+    + placesDisponibles() : int [0..1]
+    + fermer() : void
+  }
+}
+
+package "Service Plan" {
+  class PlanSession {
+    - session : String
+    - creditsEnDemande : int
+    - creditsConfirmes : int
+    - estBrouillon : boolean
+    + ajouter(d : Demande) : void
+    + retirer(d : Demande) : void
+    + caseLibrePour(t : TypeActivite) : boolean
+    + creditsTotaux(inclureDemandes : boolean) : int
+  }
+  class Intention {
+    - sessionVisee : String
+    - aReexaminer : boolean
+    - motifReexamen : String [0..1]
+    + marquerAReexaminer(motif : String) : void
+    + creditsPlanifies() : int
+  }
+}
+
+package "Moteur de règles du programme" {
+  class Programme {
+    - code : String
+    - versionRegles : int
+    + reglesActives() : List<RegleProgramme>
+  }
+  abstract class RegleProgramme {
+    # libelle : String
+    + {abstract} evaluer(e : Etudiant, p : PlanSession, a : Activite) : ResultatRegle
+  }
+  class ReglePlafondCredits {
+    - plafond : int
+    + evaluer(e : Etudiant, p : PlanSession, a : Activite) : ResultatRegle
+  }
+  class ReglePrealables {
+    + evaluer(e : Etudiant, p : PlanSession, a : Activite) : ResultatRegle
+  }
+  class RegleBloc {
+    - nomBloc : String
+    - creditsMin : int
+    - creditsMax : int [0..1]
+    - sigles : Set<String>
+    + evaluer(e : Etudiant, p : PlanSession, a : Activite) : ResultatRegle
+  }
+  class MoteurRegles <<service>> {
+    + evaluerAjout(e : Etudiant, p : PlanSession, a : Activite) : List<ResultatRegle>
+    + evaluerRetrait(e : Etudiant, p : PlanSession, d : Demande) : List<ResultatRegle>
+    + estBloquant(r : List<ResultatRegle>) : boolean
+  }
+}
+
+package "Service Demandes" {
+  class Demande {
+    - id : String
+    - etat : EtatDemande
+    - creeLe : Date
+    - echeanceReponse : Date [0..1]
+    - interlocuteur : String
+    + transitionner(vers : EtatDemande, auteur : String) : void
+    + estComptee() : boolean
+  }
+  class ServiceDemandes <<service>> {
+    + soumettre(e : Etudiant, a : Activite) : Demande
+    + repondre(d : Demande, accepte : boolean, auteur : String) : void
+    + accepterOffre(d : Demande) : void
+    + expirerEchues(maintenant : Date) : int
+  }
+}
+
+package "Connecteurs d'import" {
+  class ClientPlanifium <<adaptateur>> {
+    - urlBase : String
+    - delaiMaxMs : int
+    + lireCours(sigle : String) : CopiePlanifium
+    + lireTousLesCours() : List<CopiePlanifium>
+    + estDisponible() : boolean
+  }
+}
+
+Activite <|-- Cours
+Activite <|-- OffreActivite
+RegleProgramme <|-- ReglePlafondCredits
+RegleProgramme <|-- ReglePrealables
+RegleProgramme <|-- RegleBloc
+
+Etudiant "1" --> "1" Programme : suit >
+Etudiant "1" *-- "0..*" PlanSession : possède >
+Etudiant "1" *-- "0..*" Intention
+Intention "0..*" --> "1" Cours : vise >
+PlanSession "1" o-- "0..*" Demande : contient >
+Demande "0..*" --> "1" Activite : vise >
+Programme "1" *-- "1..*" RegleProgramme
+MoteurRegles ..> RegleProgramme : applique >
+MoteurRegles ..> Programme : lit >
+ServiceDemandes ..> MoteurRegles : vérifie avec >
+ServiceDemandes ..> Demande : crée et fait évoluer >
+ReglePrealables ..> Cours : lit les exigences >
+ClientPlanifium ..> Cours : alimente >
+@enduml
