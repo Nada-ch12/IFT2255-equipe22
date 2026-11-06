@@ -3,7 +3,11 @@
 Diagrammes :
 - `diagrammes/B2-Modele_Domaine.png`, le modèle du domaine (concepts du problème) qui sert de point de comparaison ;
 - `diagrammes/B2-Classes_Principal.png`, la **vue principale (15 classes)** ;
-- `diagrammes/B2-Classes_Annexe.png`, l'annexe (énumérations et classes complémentaires).
+- `diagrammes/B2-Classes_Annexe.png`, l'annexe (énumérations et classes complémentaires), rangée dans les mêmes paquetages que la vue principale, c'est-à-dire les composants de B1.
+
+**Décisions de nommage validées en équipe (6 nov.) :**
+- le composant s'appelle « Service Échéances et retraits » partout ; sa classe de service est `ServiceEcheancesRetraits` ;
+- `CopiePlanifium` appartient aux **Connecteurs d'import** : le `ClientPlanifium` la produit et l'enregistre. Le `ServiceSynchronisation` la compare et le Service Catalogue lit sa date ; aucun des deux ne la possède.
 
 Les paquetages du diagramme portent **le nom des composants de B1** : chaque classe se retrouve donc dans un composant.
 

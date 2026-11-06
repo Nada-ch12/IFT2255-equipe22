@@ -1,145 +1,195 @@
 @startuml B2-Classes_Annexe
 !pragma layout smetana
-title B2 — Annexe : classes et types complémentaires
+title B2 — Annexe : classes complémentaires, rangées par composant de B1
 skinparam defaultFontName Arial
 skinparam classAttributeIconSize 0
 
-enum EtatDemande {
-  EN_ATTENTE
-  OFFRE_RECUE
-  CONFIRMEE
-  REFUSEE
-  EXPIREE
-  DECLINEE
-  ANNULEE
-  RETIREE
-}
-enum StatutVerification {
-  SATISFAIT
-  NON_SATISFAIT
-  INCONNU
-}
-enum TypeActivite {
-  COURS
-  PROJET
-  STAGE
-  POSTE_LABORATOIRE
-  SEMINAIRE
-  CONCOURS
-}
-enum StatutAnalyse {
-  EXACT
-  MANUEL
-  NON_INTERPRETE
-}
-enum Provenance {
-  PLANIFIUM
-  IMPORT_FICHIER
-  SAISIE_ORGANISATION
-  SIMULATION
-}
-enum Role {
-  ETUDIANT
-  ENCADRANT
-  ORGANISATION
-  CONSEIL_PROGRAMME
-}
-
-class ResultatRegle {
-  - regle : String
-  - statut : StatutVerification
-  - message : String
-  - bloquant : boolean
-}
-class RegleChargeHebdo {
-  + evaluer(e : Etudiant, p : PlanSession, a : Activite) : ResultatRegle
-}
-class RegleTempsPlein {
-  - seuil : int
-  + evaluer(e : Etudiant, p : PlanSession, a : Activite) : ResultatRegle
-}
-class ChangementEtat {
-  - de : EtatDemande
-  - vers : EtatDemande
-  - le : Date
-  - auteur : String
-}
-class Case {
-  - type : TypeActivite
-  - demande : Demande [0..1]
-  + estLibre() : boolean
-}
-class CompteurCredits {
-  - acquis : int
-  - enCours : int
-  - enDemande : int
-  - planifies : int
-  + projection() : int
-}
-class CopiePlanifium {
-  - sigle : String
-  - jsonBrut : String
-  - updatedAt : Date
-  - importeLe : Date
-  - statutAnalyse : StatutAnalyse
-  - aVerifier : boolean
-}
-class ServiceSynchronisation <<service>> {
-  + synchroniserCours() : RapportSynchro
-  + comparer(ancienne : CopiePlanifium, nouvelle : CopiePlanifium) : boolean
-}
-class Notification {
-  - destinataire : String
-  - evenement : String
-  - cleUnique : String
-  - creeeLe : Date
-  - lue : boolean
-  - urgente : boolean
-}
-class ServiceNotifications <<service>> {
-  + notifier(destinataire : String, evenement : String, cle : String, urgente : boolean) : void
-}
-class Echeance {
-  - libelle : String
-  - date : Date [0..1]
-  - avecFrais : boolean [0..1]
-  - source : Provenance
-  + estConnue() : boolean
-}
-class ServiceEcheances <<service>> {
-  + consequencesRetrait(p : PlanSession, d : Demande, le : Date) : List<String>
-  + creerRappels(maintenant : Date) : int
-}
-class Utilisateur {
-  - identifiant : String
-  - role : Role
-}
-class ControleAcces <<middleware>> {
-  + verifierJeton(jeton : String) : Utilisateur
-  + autoriser(u : Utilisateur, action : String, proprietaire : String) : boolean
-}
-class Appreciation {
-  - activiteId : String
-  - note : int
-}
-class ServiceSuggestions <<service>> {
-  + suggerer(e : Etudiant) : List<Activite>
-  + expliquer(e : Etudiant, a : Activite) : String
-}
-class Bilan {
-  - satisfaits : List<String>
-  - incomplets : List<String>
-  - incertains : List<String>
-}
-class ServiceBilan <<service>> {
-  + produire(e : Etudiant, session : String) : Bilan
+package "Types communs" {
+  enum EtatDemande {
+    EN_ATTENTE
+    OFFRE_RECUE
+    CONFIRMEE
+    REFUSEE
+    EXPIREE
+    DECLINEE
+    ANNULEE
+    RETIREE
+  }
+  enum StatutVerification {
+    SATISFAIT
+    NON_SATISFAIT
+    INCONNU
+  }
+  enum TypeActivite {
+    COURS
+    PROJET
+    STAGE
+    POSTE_LABORATOIRE
+    SEMINAIRE
+    CONCOURS
+  }
+  enum StatutAnalyse {
+    EXACT
+    MANUEL
+    NON_INTERPRETE
+  }
+  enum Provenance {
+    PLANIFIUM
+    IMPORT_FICHIER
+    SAISIE_ORGANISATION
+    SIMULATION
+  }
+  enum Role {
+    ETUDIANT
+    ENCADRANT
+    ORGANISATION
+    CONSEIL_PROGRAMME
+  }
 }
 
-ResultatRegle --> StatutVerification
-ChangementEtat --> EtatDemande
-ServiceSynchronisation ..> CopiePlanifium
-ServiceNotifications ..> Notification
-ServiceEcheances ..> Echeance
-ControleAcces ..> Utilisateur
-ServiceBilan ..> Bilan
+package "Contrôle d'accès" {
+  class Utilisateur {
+    - identifiant : String
+    - role : Role
+  }
+  class ControleAcces <<middleware>> {
+    + verifierJeton(jeton : String) : Utilisateur
+    + autoriser(u : Utilisateur, action : String, proprietaire : String) : boolean
+  }
+}
+
+package "Service Profil et suggestions" {
+  class Appreciation {
+    - activiteId : String
+    - note : int
+  }
+  class ServiceSuggestions <<service>> {
+    + suggerer(e : Etudiant) : List<Activite>
+    + expliquer(e : Etudiant, a : Activite) : String
+  }
+}
+
+package "Service Plan" {
+  class Case {
+    - type : TypeActivite
+    - demande : Demande [0..1]
+    + estLibre() : boolean
+  }
+  class CompteurCredits {
+    - acquis : int
+    - enCours : int
+    - enDemande : int
+    - planifies : int
+    + projection() : int
+  }
+}
+
+package "Moteur de règles du programme" {
+  class ResultatRegle {
+    - regle : String
+    - statut : StatutVerification
+    - message : String
+    - bloquant : boolean
+  }
+  class RegleChargeHebdo {
+    + evaluer(e : Etudiant, p : PlanSession, a : Activite) : ResultatRegle
+  }
+  class RegleTempsPlein {
+    - seuil : int
+    + evaluer(e : Etudiant, p : PlanSession, a : Activite) : ResultatRegle
+  }
+}
+
+package "Service Demandes" {
+  class ChangementEtat {
+    - de : EtatDemande
+    - vers : EtatDemande
+    - le : Date
+    - auteur : String
+  }
+}
+
+package "Service Échéances et retraits" {
+  class Echeance {
+    - libelle : String
+    - date : Date [0..1]
+    - avecFrais : boolean [0..1]
+    - source : Provenance
+    + estConnue() : boolean
+  }
+  class ServiceEcheancesRetraits <<service>> {
+    + consequencesRetrait(p : PlanSession, d : Demande, le : Date) : List<String>
+    + creerRappels(maintenant : Date) : int
+  }
+}
+
+package "Service Notifications" {
+  class Notification {
+    - destinataire : String
+    - evenement : String
+    - cleUnique : String
+    - creeeLe : Date
+    - lue : boolean
+    - urgente : boolean
+  }
+  class ServiceNotifications <<service>> {
+    + notifier(destinataire : String, evenement : String, cle : String, urgente : boolean) : void
+  }
+}
+
+package "Service Synchronisation" {
+  class ServiceSynchronisation <<service>> {
+    + synchroniserCours() : RapportSynchro
+    + comparer(ancienne : CopiePlanifium, nouvelle : CopiePlanifium) : boolean
+  }
+  class RapportSynchro {
+    - coursModifies : List<String>
+    - sourceIndisponible : boolean
+    - le : Date
+  }
+}
+
+package "Service Bilan" {
+  class Bilan {
+    - satisfaits : List<String>
+    - incomplets : List<String>
+    - incertains : List<String>
+  }
+  class ServiceBilan <<service>> {
+    + produire(e : Etudiant, session : String) : Bilan
+  }
+}
+
+package "Connecteurs d'import" {
+  class ClientPlanifium <<adaptateur>> {
+    (détail dans la vue principale)
+  }
+  class CopiePlanifium {
+    - sigle : String
+    - jsonBrut : String
+    - updatedAt : Date
+    - importeLe : Date
+    - statutAnalyse : StatutAnalyse
+    - aVerifier : boolean
+  }
+}
+
+ControleAcces ..> Utilisateur : produit >
+ServiceEcheancesRetraits ..> Echeance : lit >
+ServiceNotifications ..> Notification : crée >
+ServiceSynchronisation ..> RapportSynchro : produit >
+ServiceSynchronisation ..> ClientPlanifium : demande une copie >
+ClientPlanifium ..> CopiePlanifium : produit et enregistre >
+ServiceSynchronisation ..> CopiePlanifium : compare >
+ServiceBilan ..> Bilan : produit >
+
+' Mise en page : empiler les paquetages sur plusieurs rangées
+Role -[hidden]down-> Case
+Utilisateur -[hidden]down-> ResultatRegle
+Appreciation -[hidden]down-> ChangementEtat
+Case -[hidden]down-> Echeance
+RegleTempsPlein -[hidden]down-> Notification
+CompteurCredits -[hidden]down-> ServiceSynchronisation
+Echeance -[hidden]down-> ServiceBilan
+Notification -[hidden]down-> ClientPlanifium
 @enduml

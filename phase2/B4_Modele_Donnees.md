@@ -31,7 +31,7 @@
 | Demande, ChangementEtat | **Serveur** | État courant et **historique complet** des transitions (date, auteur) | Service Demandes |
 | OffreActivite | **Serveur** | Offres publiées par les organisations (la plateforme est leur source de vérité) | Service Catalogue |
 | Programme, RegleProgramme | **Serveur** | Règles **versionnées** (qui les a changées et quand) | Moteur de règles |
-| **CopiePlanifium** (copies des réponses de l'API) | **Serveur** | JSON brut, `updated_at` de Planifium, date d'import, statut d'analyse, marque « à vérifier » ; on garde la copie précédente pour comparer | Client Planifium, Service Synchronisation |
+| **CopiePlanifium** (copies des réponses de l'API) | **Serveur** | JSON brut, `updated_at` de Planifium, date d'import, statut d'analyse, marque « à vérifier » ; on garde la copie précédente pour comparer | Client Planifium (produit et enregistre) ; utilisée par Service Synchronisation (compare) et Service Catalogue (affiche la date) |
 | Echeance | **Serveur** | Dates importées du calendrier, avec leur source | Service Échéances et retraits |
 | Notification | **Serveur** | Destinataire, événement, clé unique (anti-doublon), lue / non lue | Service Notifications |
 | Utilisateur, Role, journal | **Serveur** | Rôle de chaque compte ; journal des écritures et des refus | Contrôle d'accès |

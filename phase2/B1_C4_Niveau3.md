@@ -56,11 +56,11 @@ Lecture : ordre de passage d'un composant à l'autre (→). « App » = applicat
 | Service Plan | PlanSession, Intention | Case, CompteurCredits |
 | Moteur de règles du programme | Programme, RegleProgramme, ReglePlafondCredits, ReglePrealables, RegleBloc, MoteurRegles | RegleChargeHebdo, RegleTempsPlein, ResultatRegle |
 | Service Demandes | Demande, ServiceDemandes | ChangementEtat |
-| Service Échéances et retraits | — | Echeance, ServiceEcheances |
+| Service Échéances et retraits | — | Echeance, ServiceEcheancesRetraits |
 | Service Notifications | — | Notification, ServiceNotifications |
-| Service Synchronisation | — | ServiceSynchronisation |
+| Service Synchronisation | — | ServiceSynchronisation, RapportSynchro *(utilise CopiePlanifium sans la posséder)* |
 | Service Bilan | — | ServiceBilan, Bilan |
-| Client Planifium (connecteurs) | ClientPlanifium | CopiePlanifium |
+| Client Planifium (connecteurs) | ClientPlanifium | CopiePlanifium *(produite et enregistrée par le Client Planifium)* |
 | Dépôts de données | — | (une interface de dépôt par entité, non dessinée) |
 
 > À faire en équipe : vérifier que **chaque nom** ci-dessus est identique dans B1, B2, B3 et B4.
