@@ -1,67 +1,87 @@
 @startuml B1-C4-Niveau3
 !pragma layout smetana
 !include <C4/C4_Component>
-LAYOUT_TOP_DOWN()
-title B1 — C4 niveau 3 : composants de l'API REST (et des connecteurs d'import)
+LAYOUT_LEFT_RIGHT()
+title B1 — C4 niveau 3 : API REST et connecteurs d'import (révision)
 
-Container(web, "Application web", "React", "Interface des utilisateurs")
+' Vue principale : relations structurantes. Les parcours alternatifs sont détaillés dans B1.md.
+' Le contrôle d'accès s'applique aux opérations protégées avant l'appel aux services.
+Container(web, "Application web", "React", "Interface des étudiants et encadrants")
 Container(cron, "Planificateur", "cron", "Déclencheur périodique")
-ContainerDb(db, "Base de données", "PostgreSQL")
+ContainerDb(db, "Base de données", "PostgreSQL", "États, copies, historiques")
 System_Ext(idp, "Fournisseur d'identité", "SSO")
 System_Ext(mail, "Service de courriel", "SMTP")
 System_Ext(planif, "API Planifium", "Répertoire des cours")
+System_Ext(registrariat, "Registrariat", "Fichiers institutionnels : relevés et calendrier")
 
-Container_Boundary(api, "API REST (Node.js, Express)") {
-  Component(rout, "Routeur REST", "Express", "Reçoit chaque requête HTTP et la dirige vers le bon service.")
-  Component(acces, "Contrôle d'accès", "Middleware", "Vérifie le jeton et applique la matrice des droits par rôle et par propriétaire.")
-  Component(profil, "Service Profil et suggestions", "Module", "Gère le profil, les préférences, les appréciations et explique les suggestions.")
-  Component(cata, "Service Catalogue", "Module", "Réunit les cours copiés de Planifium et les offres des organisations en un catalogue commun.")
-  Component(plan, "Service Plan", "Module", "Gère le plan de session, les intentions futures et les compteurs de crédits séparés.")
-  Component(regles, "Moteur de règles du programme", "Module", "Évalue préalables, plafond, charge, blocs et temps plein avec un résultat à trois valeurs.")
-  Component(dem, "Service Demandes", "Module", "Fait évoluer chaque demande selon le modèle d'états et garde son historique.")
-  Component(ech, "Service Échéances et retraits", "Module", "Fournit les dates utiles et calcule les conséquences d'un retrait.")
-  Component(notif, "Service Notifications", "Module", "Crée une notification par événement, sans doublon, et envoie les urgentes par courriel.")
-  Component(sync, "Service Synchronisation", "Module", "Compare les nouvelles copies aux anciennes et lance le réexamen des plans touchés.")
-  Component(bilan, "Service Bilan", "Module", "Produit le bilan de fin de période : satisfait, incomplet, incertain.")
-  Component(depots, "Dépôts de données", "Module SQL", "Lit et écrit les entités et leur historique dans la base.")
+Container_Boundary(api, "API REST — Node.js / Express") {
+  Component(rout, "Routeur REST", "Express", "Distribue les requêtes après contrôle des droits")
+  Component(acces, "Contrôle d'accès", "Middleware", "Vérifie jeton, rôle et propriétaire")
+  Component(profil, "Service Profil et suggestions", "Module", "Profil, préférences et suggestions")
+  Component(cata, "Service Catalogue", "Module", "Catalogue unifié des cours et offres")
+  Component(plan, "Service Plan", "Module", "Plans, intentions et compteurs distincts")
+  Component(regles, "Moteur de règles du programme", "Module", "Préalables, crédits, charge et blocs : satisfait/non satisfait/inconnu")
+  Component(dem, "Service Demandes", "Module", "Soumission, offres, transitions et historique")
+  Component(ech, "Service Échéances et retraits", "Module", "Dates, conséquences et admissibilité du retrait")
+  Component(notif, "Service Notifications", "Module", "Événements, rappels et alertes")
+  Component(sync, "Service Synchronisation", "Module", "Compare les copies et signale les intentions touchées")
+  Component(bilan, "Service Bilan", "Module", "Bilan de fin de période")
+  Component(depots, "Dépôts de données", "Module SQL", "Persistance des données métier")
+}
+Container_Boundary(conn, "Connecteurs d'import — Node.js") {
+  Component(cliP, "Client Planifium", "Adaptateur REST", "Produit et conserve des copies datées")
+  Component(impF, "Importeur de fichiers", "Module", "Importe relevés et dates avec provenance")
 }
 
-Container_Boundary(conn, "Connecteurs d'import (Node.js)") {
-  Component(cliP, "Client Planifium", "Adaptateur REST", "Appelle Planifium et traduit ses réponses en copies datées avec leur statut.")
-  Component(impF, "Importeur de fichiers", "Module", "Lit le relevé et le calendrier, vérifie leur format et note leur provenance.")
-}
+' Entrées et sécurité
+Rel(web, rout, "Actions, plans et résultats", "JSON / HTTPS")
+Rel(web, idp, "Connexion de l'utilisateur", "OpenID Connect / HTTPS")
+Rel(cron, rout, "Expirations, rappels et synchronisation", "REST / HTTPS")
+Rel(rout, acces, "Demandes protégées et contexte utilisateur", "Middleware Express")
+Rel(acces, idp, "Jeton et identité", "OpenID Connect")
 
-Rel(web, rout, "Envoie les actions", "JSON / HTTPS")
-Rel(rout, acces, "Fait vérifier chaque requête")
-Rel(acces, idp, "Valide le jeton", "OpenID Connect")
-Rel(rout, profil, "Profil, appréciations")
-Rel(rout, cata, "Recherche d'activités")
-Rel(rout, plan, "Ajout, retrait, intention")
-Rel(rout, dem, "Soumission, réponse, acceptation, expiration")
-Rel(rout, ech, "Consultation des échéances, rappels")
-Rel(rout, bilan, "Demande de bilan")
-Rel(rout, sync, "Lance la synchronisation")
-Rel(plan, regles, "Fait évaluer le plan modifié")
-Rel(dem, regles, "Fait vérifier avant soumission")
-Rel(regles, cata, "Lit exigences et crédits")
-Rel(dem, plan, "Met à jour l'état d'une case")
-Rel(plan, ech, "Demande les conséquences d'un retrait")
-Rel(dem, notif, "Signale un changement d'état")
-Rel(sync, plan, "Marque les intentions à réexaminer")
-Rel(sync, notif, "Signale un changement d'offre")
-Rel(ech, notif, "Crée les rappels d'échéance")
-Rel(bilan, plan, "Lit plan et intentions")
-Rel(bilan, regles, "Lit exigences restantes")
-Rel(profil, cata, "Classe les activités")
-Rel(cron, rout, "Déclenche synchronisation, expirations, rappels", "REST")
-Rel(sync, cliP, "Demande une nouvelle copie")
-Rel(sync, impF, "Demande un import")
-Rel(cliP, planif, "Lit cours, exigences, horaires", "REST / JSON")
-Rel(notif, mail, "Envoie les alertes urgentes", "SMTP")
-Rel(depots, db, "Lit et écrit", "SQL")
-Rel(cliP, db, "Écrit les copies datées", "SQL")
-Rel(impF, db, "Écrit relevé et dates importés", "SQL")
-Rel_D(plan, depots, "Persiste")
-Rel_D(dem, depots, "Persiste")
-Rel_D(notif, depots, "Persiste")
+' Distribution, principaux services
+Rel(rout, profil, "Profil et appréciations", "Appel interne")
+Rel(rout, cata, "Recherche d'activités", "Appel interne")
+Rel(rout, plan, "Plans, intentions et retraits", "Appel interne")
+Rel(rout, dem, "Demandes et réponses", "Appel interne")
+Rel(rout, ech, "Consultation des échéances", "Appel interne")
+Rel(rout, sync, "Synchronisation périodique", "Appel interne")
+Rel(rout, bilan, "Demande de bilan", "Appel interne")
+
+' Logique métier essentielle
+Rel(dem, regles, "Demande et contraintes à contrôler", "Appel interne")
+Rel(regles, cata, "Crédits et exigences des activités", "Appel interne")
+Rel(dem, plan, "État de demande et crédits associés", "Appel interne")
+Rel(plan, regles, "Plan envisagé et résultat des règles", "Appel interne")
+Rel(plan, ech, "Retrait envisagé et conséquences", "Appel interne")
+Rel(dem, notif, "Événements de demande", "Événement interne")
+Rel(ech, notif, "Rappels et alertes d'échéance", "Événement interne")
+Rel(sync, plan, "Intentions à réexaminer", "Appel interne")
+Rel(sync, cliP, "Actualisation du catalogue", "Appel interne")
+Rel(profil, impF, "Relevé à importer", "Appel interne")
+Rel(ech, impF, "Calendrier à importer", "Appel interne")
+
+' Sources et persistance
+Rel(cliP, planif, "Cours, exigences et horaires", "REST / JSON")
+Rel(impF, registrariat, "Lit relevés et calendrier institutionnels", "Import de fichier")
+Rel(cliP, db, "Copies datées", "SQL")
+Rel(impF, db, "Relevés, dates, provenance", "SQL")
+Rel(plan, depots, "Plans et intentions", "Appel interne")
+Rel(dem, depots, "Demandes et historique", "Appel interne")
+Rel(depots, db, "Entités et historiques", "SQL")
+Rel(notif, mail, "Alertes urgentes", "SMTP")
+
+' Les autres usages (profil->catalogue, retrait->règles, notifications->dépôts,
+' bilan->plan/règles) devront être décrits dans le texte B1 et la matrice.
+' Le lien web->idp représente la connexion ; acces->idp représente la vérification du jeton.
+' Le lien impF->registrariat correspond à la source des fichiers du C4 niveau 2.
+' Contraintes de placement purement visuelles.
+Lay_R(rout, plan)
+Lay_R(plan, regles)
+Lay_R(regles, depots)
+Lay_D(rout, dem)
+Lay_D(dem, ech)
+Lay_D(ech, notif)
+Lay_D(sync, cliP)
 @enduml

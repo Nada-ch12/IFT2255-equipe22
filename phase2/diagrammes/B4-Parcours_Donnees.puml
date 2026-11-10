@@ -1,0 +1,45 @@
+@startuml B4-Parcours_Donnees
+!pragma layout smetana
+left to right direction
+title B4 — Parcours de deux données, de la source à l'affichage
+skinparam defaultFontName Arial
+skinparam rectangle {
+  RoundCorner 8
+}
+skinparam legendBackgroundColor #FFFFFF
+
+rectangle "Parcours 1 — Préalables d'un cours (IFT1025)" as P1 {
+  rectangle "API Planifium\nrequirements, status,\nupdated_at\n<i>(échange · JSON)</i>" as p1a #DCEBFA
+  rectangle "Client Planifium\ntraduit la réponse\n<i>(échange)</i>" as p1b #DCEBFA
+  rectangle "CopiePlanifium\nJSON brut + dates + statut\n<i>(préservation · serveur)</i>" as p1c #DDF2DD
+  rectangle "ReglePrealables\n+ relevé importé\n→ ResultatRegle\n<i>(traitement · API)</i>" as p1d #FFFFFF
+  rectangle "Réponse REST\n{statut: INCONNU,\nsource, date}\n<i>(échange · JSON)</i>" as p1e #DCEBFA
+  rectangle "Carte de l'activité\n« ? impossible à vérifier —\ndonnées du 2026-10-20 »\n<i>(présentation)</i>" as p1f #FDE7CF
+  p1a --> p1b : GET /courses/IFT1025
+  p1b --> p1c : enregistre
+  p1c --> p1d : lue lors\nd'une demande
+  p1d --> p1e : résultat\nà 3 valeurs
+  p1e --> p1f : affiche
+}
+
+rectangle "Parcours 2 — État d'une demande (projet « Données et IA »)" as P2 {
+  rectangle "Clic « Demander »\nPOST /demandes {activiteId}\n+ jeton\n<i>(échange · JSON)</i>" as p2a #DCEBFA
+  rectangle "Service Demandes\nrègles OK → EN_ATTENTE\n<i>(traitement · API)</i>" as p2b #FFFFFF
+  rectangle "Demande + ChangementEtat\n(date, auteur)\n<i>(préservation · serveur)</i>" as p2c #DDF2DD
+  rectangle "Réponse de ENC-A\n→ OFFRE_RECUE\nNotification (clé unique)\n<i>(préservation · serveur)</i>" as p2d #DDF2DD
+  rectangle "Courriel\n« offre à accepter »\n<i>(échange · SMTP)</i>" as p2e #DCEBFA
+  rectangle "Plan de l'étudiant\n« Offre reçue de ENC-A,\nà accepter avant le 12 nov. »\ncrédits « en demande »\n<i>(présentation)</i>" as p2f #FDE7CF
+  p2a --> p2b : Routeur REST\n+ Contrôle d'accès
+  p2b --> p2c : Dépôts → SQL
+  p2c --> p2d : l'encadrant\nrépond
+  p2d --> p2e : urgent
+  p2d --> p2f : GET /demandes
+}
+
+legend right
+  <back:#DCEBFA>  échange  </back>
+  <back:#DDF2DD>  préservation  </back>
+  <back:#FDE7CF>  présentation  </back>
+  blanc : traitement (aucune donnée stockée)
+endlegend
+@enduml

@@ -1,6 +1,6 @@
-# B1 — Modèle C4 niveau 3 (BROUILLON à retravailler par l'équipe)
+# B1 — Modèle C4 niveau 3
 
-Diagramme : `diagrammes/B1-C4-Niveau3.png` (source `B1-C4-Niveau3.puml`).
+Figure : `diagrammes/B1-C4-Niveau3.png`, C4 niveau 3 de l'API REST et des connecteurs d'import.
 
 ## 1. Conteneur décomposé et justification
 
@@ -34,17 +34,9 @@ Pourquoi c'est l'API qui porte la logique de planification :
 
 Toutes les relations du diagramme ont une étiquette (verbe + ce qui circule).
 
-## 3. Matrice de traçabilité : les 5 flux A2 à travers les composants
+## 3. Matrice de traçabilité des cinq flux A2
 
-Lecture : ordre de passage d'un composant à l'autre (→). « App » = application web.
-
-| Flux A2 | Étapes du flux | Chemin dans les composants |
-|---|---|---|
-| **A2.1** Ajouter une activité après vérification | Demander → vérifier préalables → vérifier plafond et charge → « en attente » | App → Routeur → Contrôle d'accès → Service Demandes → Moteur de règles → Service Catalogue (exigences copiées de Planifium) → Moteur de règles (plafond, charge, bloc) → Service Plan (crédits « en demande ») → Dépôts → Service Notifications (avertit le tiers) |
-| **A2.2** Demander une place et répondre à une offre | Transmission au tiers → réponse → offre → acceptation → « confirmée » ; ou expiration | Encadrant : App → Routeur → Contrôle d'accès (est-ce bien son offre ?) → Service Demandes (EN_ATTENTE → OFFRE_RECUE) → Service Notifications → courriel. Étudiant : App → Routeur → Service Demandes (→ CONFIRMEE) → Service Plan (crédits « en cours »). Expiration : Planificateur → Routeur → Service Demandes (→ EXPIREE) → Service Notifications |
-| **A2.3** Retirer une activité | Demander retrait → dates → calcul crédits / temps plein → conséquences → confirmer ou annuler | App → Routeur → Contrôle d'accès → Service Plan (aperçu) → Service Échéances et retraits (dates, frais) → Moteur de règles (temps plein) → App (affiche les conséquences) → confirmation → Service Plan → Service Demandes (CONFIRMEE → RETIREE) → Dépôts |
-| **A2.4** Réexaminer une intention future | Planifier une intention → vérifier offre et contraintes → « planifiée » ; plus tard, changement d'offre → alerte | App → Routeur → Service Plan → Service Catalogue → Moteur de règles → Dépôts (intention « planifiée »). Plus tard : Planificateur → Routeur → Service Synchronisation → Client Planifium → API Planifium ; différence trouvée → Service Plan (intention « à réexaminer ») → Service Notifications |
-| **A2.5** Consulter ses échéances | Demander les dates → date inconnue / dépassée / connue → alerte 7 jours avant | App → Routeur → Service Échéances et retraits → Dépôts (dates importées par l'Importeur de fichiers). Rappels : Planificateur → Routeur → Service Échéances et retraits → Service Notifications → Service de courriel |
+<!-- INCLURE B1_Matrice_tracabilite.md -->
 
 ## 4. Correspondance composants ↔ classes de B2
 

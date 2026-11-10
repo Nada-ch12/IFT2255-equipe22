@@ -1,0 +1,61 @@
+@startuml A2-2_revise
+title A2.2 (révisé) — Demander une place et répondre à une offre\nFiche 1 + Fiche 3 — états du modèle unique (EN_ATTENTE, OFFRE_RECUE, CONFIRMEE, REFUSEE, EXPIREE, DECLINEE)
+skinparam defaultFontName Arial
+skinparam ActivityBackgroundColor #FFFFFF
+
+|Personne étudiante|
+start
+:Envoyer la demande\n(après A2.1);
+
+|Plateforme|
+:Enregistrer la demande : EN_ATTENTE\navec son échéance de réponse;
+:Transmettre la demande au tiers\net le notifier;
+
+|Personne qui encadre\nou organisation|
+if (Répond avant l'échéance ?) then (non)
+  |Plateforme|
+  :Planificateur : passer à EXPIREE;
+  :Notifier l'étudiant\n(une seule fois);
+  |Personne étudiante|
+  :Voir « expirée, sans réponse »\net les alternatives;
+  stop
+else (oui)
+endif
+
+|Personne qui encadre\nou organisation|
+if (Décision ?) then (refuse)
+  |Plateforme|
+  :Passer à REFUSEE\navec le motif;
+  :Notifier l'étudiant;
+  |Personne étudiante|
+  :Voir le refus et le motif;
+  stop
+else (accepte)
+  |Personne qui encadre\nou organisation|
+  :Envoyer une offre\n(conditions, échéance);
+endif
+
+|Plateforme|
+:Passer à OFFRE_RECUE;
+:Notifier l'étudiant\n(courriel : offre à accepter);
+
+|Personne étudiante|
+if (Décision sur l'offre ?) then (refuse)
+  |Plateforme|
+  :Passer à DECLINEE;
+  stop
+elseif (pas de réponse avant\nl'échéance de l'offre) then
+  |Plateforme|
+  :Planificateur : passer à EXPIREE;
+  stop
+else (accepte)
+endif
+
+|Plateforme|
+:Revérifier plafond et charge\n(le plan a pu changer);
+:Passer à CONFIRMEE;
+:Compter les crédits « en cours »\n(pas une inscription officielle);
+|Personne étudiante|
+:Voir l'activité confirmée;
+stop
+@enduml
