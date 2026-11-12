@@ -1,4 +1,4 @@
-# B2 — Diagramme de classes (BROUILLON à retravailler par l'équipe)
+# B2 — Diagramme de classes
 
 Diagrammes :
 - `diagrammes/B2-Modele_Domaine.png`, le modèle du domaine (concepts du problème) qui sert de point de comparaison ;
@@ -19,8 +19,8 @@ Les paquetages du diagramme portent **le nom des composants de B1** : chaque cla
 | Activite *(abstraite)* | Ce qui est commun à toute activité : crédits, charge, provenance. | Service Catalogue |
 | Cours | Cours copié de Planifium, avec ses exigences brutes et leur statut d'analyse. | Service Catalogue |
 | OffreActivite | Projet, stage, poste ou séminaire publié par une organisation. | Service Catalogue |
-| PlanSession | Plan d'une session : demandes, crédits en demande et confirmés, brouillon. | Service Plan |
-| Intention | Activité visée pour une session future, qui peut être « à réexaminer ». | Service Plan |
+| PlanSession | Plan d'une session : ses demandes et son état de brouillon ; ses crédits sont dans `CompteurCredits` (annexe). | Service Plan |
+| Intention | Activité (`Activite`) visée pour une session future, qui peut être « à réexaminer ». | Service Plan |
 | Programme | Programme suivi et version de ses règles. | Moteur de règles |
 | RegleProgramme *(abstraite)* | Contrat commun : `evaluer()` renvoie un résultat à trois valeurs. | Moteur de règles |
 | ReglePlafondCredits | Règle du plafond de crédits par session. | Moteur de règles |
@@ -42,34 +42,40 @@ Les paquetages du diagramme portent **le nom des composants de B1** : chaque cla
 | **ClientPlanifium** | Planifium est un choix technique : le domaine parle seulement d'un « répertoire des cours ». | Isole une source imparfaite (lente, incomplète, datée). Si l'API change, une seule classe change. |
 | *(annexe)* ResultatRegle, CopiePlanifium, Notification, ControleAcces | Ce sont des objets techniques de conception. | Résultat à trois valeurs, copie datée, notification sans doublon, autorisation. |
 
-## 3. Écarts entre le modèle du domaine et la conception (au moins 2)
+## 3. Écarts entre le modèle du domaine et la conception
 
-**Écart 1 — « Offre du tiers » n'est plus une classe : c'est un état de la Demande.**
-Dans le domaine, la demande et l'offre sont deux concepts. Dans la conception, l'offre devient l'état `OFFRE_RECUE` de `Demande`, avec son échéance (`echeanceReponse`).
-*Raison :* deux objets à garder synchronisés produiraient exactement l'incohérence relevée par la correctrice (A1 ≠ A2). Avec une seule machine à états (`diagrammes/Etats_Demande.png`), une demande ne peut pas être « confirmée » et « en attente » en même temps.
+### Écart 1 — Gestion des données externes
 
-**Écart 2 — « Règle du programme » (un texte) devient une hiérarchie de classes à résultat à trois valeurs.**
-Dans le domaine, une règle est une description. Dans la conception, c'est une classe abstraite `RegleProgramme` avec une sous-classe par règle, et chaque évaluation renvoie `SATISFAIT`, `NON_SATISFAIT` ou `INCONNU`.
-*Raison :* Planifium ne comprend entièrement qu'environ 90 % des textes d'exigences (`status: "exact"`). Les autres sont `manual` ou non interprétés, et certaines conditions (permission, moyenne non fournie) donnent `unknown`. Un booléen obligerait à transformer « inconnu » en « satisfait », ce que l'exigence E3 interdit (c'était l'erreur observée avec IFT1025).
+Dans la phase 1, nous avions prévu de récupérer les cours et leurs préalables depuis un répertoire externe, avec des connecteurs d'import. Dans notre conception, nous avons précisé cette gestion avec `ClientPlanifium`, qui possède la méthode `lireCours()`, et `CopiePlanifium`, qui conserve les données récupérées. Les attributs `aVerifier` et `statutAnalyse` permettent de signaler les informations qui nécessitent encore une vérification.
 
-**Écart 3 — Projet, Stage, Séminaire et Concours fusionnent en `OffreActivite`.**
-Dans le domaine, ce sont quatre concepts. Dans la conception, c'est une classe avec un attribut `type : TypeActivite`.
-*Raison :* ils ont le même comportement (publier, fermer, recevoir des demandes) ; seules les données changent. Le cours reste à part, parce qu'il vient de Planifium et a des exigences.
+### Écart 2 — Évaluation des règles du programme
 
-**Écart 4 — Le cours ne « possède » pas ses préalables : il garde une copie datée.**
-Dans le domaine, `Cours` a des préalables. Dans la conception, `Cours` garde `exigencesBrutes`, `statutAnalyse` et `copieDu`.
-*Raison :* la source de vérité est le répertoire, et l'instantané Planifium peut avoir changé (`updated_at`). Afficher la date de la copie évite de présenter une donnée périmée comme sûre.
+Dans la phase 1, nous avions prévu de vérifier les contraintes du programme, comme les préalables, le plafond de crédits et la charge de travail, sans préciser leur mécanisme d'évaluation interne. Dans notre conception, nous avons introduit `MoteurRegles`, qui utilise plusieurs règles spécialisées héritant de `RegleProgramme`. Sa méthode `evaluerAjout()` retourne une liste de `ResultatRegle`, ce qui permet de connaître séparément le résultat de chaque vérification.
 
-## 4. Choix de conception à défendre (section « défense des choix », 15 %)
+## 4. Choix de conception à défendre
 
-- **Patron Stratégie** pour les règles (`RegleProgramme`) : chaque règle se teste seule (voir B3).
-- **Patron Adaptateur** pour Planifium (`ClientPlanifium`) : le reste du système ne connaît pas le format JSON de Planifium.
-- **Toute transition d'état passe par `Demande.transitionner()`**, qui refuse les transitions interdites et crée un `ChangementEtat` (historique, exigence E6 : date et interlocuteur du dernier changement).
-- **`PlanSession.creditsTotaux(inclureDemandes)`** : les demandes en attente comptent dans la vérification du plafond (correction de l'observation 25/18 crédits), mais ne sont jamais affichées comme confirmées.
+### Choix 1 — Isoler la communication avec Planifium
+
+Nous avons choisi de passer par `ClientPlanifium` et de conserver une copie des données dans `CopiePlanifium`, plutôt que d'appeler l'API à chaque consultation. Cela permet d'utiliser les informations déjà récupérées lorsque Planifium est lent ou indisponible. Le compromis est que ces données peuvent devenir périmées, d'où les attributs `aVerifier` et `statutAnalyse`.
+
+### Choix 2 — Utiliser des règles spécialisées
+
+Nous avons choisi de séparer les règles dans plusieurs classes plutôt que de mettre toutes les vérifications dans une seule grosse méthode. Les classes `ReglePrealables`, `ReglePlafondCredits` et `RegleBloc` héritent de `RegleProgramme` et utilisent la méthode `evaluer()`, ce qui permet au moteur de traiter différentes contraintes. Cette organisation facilite les modifications et l'ajout de nouvelles règles, mais elle demande de gérer davantage de classes.
+
+### Choix 3 — Séparer les demandes du plan de session
+
+Nous avons choisi de garder `Demande` séparée de `PlanSession`, plutôt que de mettre directement les états des demandes dans le plan. La méthode `transitionner()` permet de faire évoluer une demande, tandis que `ChangementEtat` conserve l'historique de ses différents états. Cela facilite le suivi des réponses des tiers, mais demande de maintenir la cohérence entre les demandes et le plan lorsqu'une demande change d'état.
 
 ## 5. À vérifier par l'équipe
 
 - [ ] Les noms des paquetages sont identiques aux noms des composants de B1.
 - [ ] Les multiplicités sont correctes (ex. un `Etudiant` a-t-il un seul `Programme` ? Cas du double programme).
 - [ ] Les énumérations sont en annexe : décider si on les compte dans les 15 (sinon, c'est une bonne question à poser au correcteur).
-- [ ] Refaire le diagramme dans Visual Paradigm si l'équipe préfère ce rendu.
+- [x] Diagrammes refaits dans Visual Paradigm.
+
+
+## 6. Déclaration d'utilisation de l'intelligence artificielle
+
+Pour la partie B2, j'ai utilisé ChatGPT (OpenAI) et Claude (Anthropic) comme outils d'assistance. Claude m'a accompagné dans la préparation et la correction d'un brouillon PlantUML, ainsi que dans la réalisation du diagramme de classes dans Visual Paradigm. Il m'a également aidé à vérifier la cohérence UML et les explications de mes choix de conception. ChatGPT m'a aidé à comparer les diagrammes avec les documents de la phase 1, à vérifier certaines classes et relations UML et à reformuler les justifications écrites.
+
+Les décisions de conception retenues sont celles de notre équipe. J'ai utilisé ces outils pour comprendre, vérifier et améliorer la présentation de mon travail, puis relire et adapter les explications en fonction de nos diagrammes et des besoins du projet.
