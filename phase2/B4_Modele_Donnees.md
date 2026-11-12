@@ -64,7 +64,7 @@ Figure : `diagrammes/B4-Parcours_Donnees.png` (en bleu l'échange, en vert la pr
 
 ### Parcours 1 — Les préalables d'un cours (IFT1025)
 
-1. **Source (échange)** : Planifium renvoie pour IFT1025 `requirements` (IFT1015), `status` et `updated_at` *(Client Planifium)*.
+1. **Source (échange)** : Planifium renvoie pour IFT1025 `requirements` (`any( IFT1015, IFT1016 )`, texte « IFT1015 ou IFT1016 »), `status: "exact"` et un `schedules` vide *(Client Planifium)*.
 2. **Préservation** : le Client Planifium enregistre une `CopiePlanifium` (JSON brut, date d'import, statut). Si `status` vaut `manual`, la copie est marquée « à vérifier » *(Client Planifium → base de données)*.
 3. **Traitement** : quand l'étudiant demande IFT1025, `ReglePrealables` compare les exigences au relevé importé → `ResultatRegle` = SATISFAIT, NON_SATISFAIT ou INCONNU *(Moteur de règles du programme)*.
 4. **Échange** : l'API renvoie `{regle: "Préalables", statut: "INCONNU", message, source: "Planifium, 2026-10-20"}` *(Routeur REST)*.
@@ -82,4 +82,4 @@ Une exigence non comprise par Planifium, ou un relevé absent, arrive à l'écra
 
 ### Parcours complémentaire — Les places disponibles
 
-`capacity` et `enrolled` de Planifium → `CopiePlanifium` → `Cours.placesDisponibles()` → « 0 place selon les données du 2026-11-03 ». La date est toujours affichée, puisque Planifium précise que les places peuvent avoir changé depuis `updated_at`.
+`capacity` et `enrolled` d'une section (champ `schedules`) → `CopiePlanifium` → `Cours.placesDisponibles()` → « 0 place selon les données du 2026-11-03 ». La date est toujours affichée, puisque Planifium précise que les places peuvent avoir changé depuis `updated_at`. Quand `schedules` est vide (cas réel de IFT1025, IFT2255, IFT3395 et STT1700 au 2026-11-10), l'écran affiche « aucun horaire publié » : l'absence de données n'est ni « complet » ni « offert ».

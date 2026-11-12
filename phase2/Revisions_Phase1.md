@@ -127,4 +127,4 @@ Quand une synchronisation détecte un changement (cours retiré, offre complète
 | Retrait refusé après le 6 novembre, orientation vers le Registrariat | A2.3 | Calendrier universitaire A26 | **Hypothèse**, même traitement |
 | Alerte 7 jours avant une échéance | A2.5 | — | **Choix de conception** de l'équipe, présenté comme tel |
 | Délai d'expiration d'une demande | A2.2 | Aucune règle observée (Coopérative Volta, sem. 10) | **Paramètre** : chaque demande porte son `echeanceReponse` ; aucune durée uniforme supposée |
-| Préalable de IFT1025 (IFT1015) | Fiche 2, A2.1, B3 | API Planifium | **À confirmer** avec `GET /courses/IFT1025/prerequisites` avant la remise |
+| Préalable de IFT1025 | Fiche 2, A2.1, B3 | Réponse réelle de l'API Planifium (vérifiée le 2026-11-10) | **Corrigée** : « IFT1015 ou IFT1016 » (`any`), et non IFT1015 seul. Les préalables de IFT3395, IFT2255 et STT1700 ont aussi été vérifiés (B3) |
