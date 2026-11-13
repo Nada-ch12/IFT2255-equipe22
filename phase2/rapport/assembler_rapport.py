@@ -62,7 +62,7 @@ NETTOYAGES = [
     (re.compile(r"\s*\(section « défense des choix », 15 %\)"), ""),
     (re.compile(r"\s*\(au moins \d+\)"), ""),
 ]
-TITRES_IGNORES = re.compile(r"^#+\s*(\d+\.\s*)?À (vérifier|faire)", re.I)
+TITRES_IGNORES = re.compile(r"^#+\s*(\d+\.\s*)?(À (vérifier|faire)|Déclaration d.utilisation)", re.I)
 
 RE_IMAGE = re.compile(r"`?diagrammes/([A-Za-z0-9_\-]+\.png)`?")
 RE_INLINE = re.compile(r"(\*\*[^*]+\*\*|\*[^*\s][^*]*\*|`[^`]+`)")
@@ -183,7 +183,7 @@ class Assembleur:
     def _inserer_image(self, chemin, legende, retour=True):
         largeur_px, hauteur_px = Image.open(chemin).size
         ratio = largeur_px / hauteur_px
-        paysage = ratio > 1.4 and largeur_px > 1800
+        paysage = ratio > 1.3 and largeur_px > 1800
         if paysage:
             self._orientation(paysage=True)
             larg = min(PLEINE_LARGEUR_PAYSAGE, HAUTEUR_MAX_PAYSAGE * ratio)
