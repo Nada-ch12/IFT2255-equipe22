@@ -80,6 +80,8 @@ Une exigence non comprise par Planifium, ou un relevé absent, arrive à l'écra
 4. **Événement** : l'encadrant accepte → OFFRE_RECUE ; le Service Notifications enregistre une `Notification` (clé `demande-42-OFFRE_RECUE`) et envoie un courriel *(Service Notifications)*.
 5. **Présentation** : le plan affiche « Offre reçue de ENC-A le 2026-11-05 — à accepter avant le 2026-11-12 » ; les crédits restent « en demande » jusqu'à CONFIRMEE *(Application web)*.
 
-### Parcours complémentaire — Les places disponibles
+### Parcours complémentaire — Les places disponibles et le réexamen d'une intention
 
 `capacity` et `enrolled` d'une section (champ `schedules`) → `CopiePlanifium` → `Cours.placesDisponibles()` → « 0 place selon les données du 2026-11-03 ». La date est toujours affichée, puisque Planifium précise que les places peuvent avoir changé depuis `updated_at`. Quand `schedules` est vide (cas réel de IFT1025, IFT2255, IFT3395 et STT1700 au 2026-11-10), l'écran affiche « aucun horaire publié » : l'absence de données n'est ni « complet » ni « offert ».
+
+**Réexamen d'une intention future (E11).** Lors de la synchronisation, `ServiceSynchronisation.comparer()` compare l'ancienne et la nouvelle `CopiePlanifium` d'un cours. Si l'offre visée par une `Intention` a changé (par exemple, le cours n'est plus offert à la session visée), le Service Plan appelle `Intention.marquerAReexaminer(motif)` : l'attribut `aReexaminer` passe à vrai et `motifReexamen` est renseigné, **sans supprimer l'intention** (préservation, serveur). Une notification est créée, et l'écran du plan affiche « à réexaminer — automne 2027 — n'est plus offert » (présentation). Une copie sans horaire publié n'est pas un changement : l'intention reste « planifiée » (voir B3, T17).
