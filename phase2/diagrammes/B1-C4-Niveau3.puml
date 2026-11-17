@@ -72,8 +72,14 @@ Rel(dem, depots, "Demandes et historique", "Appel interne")
 Rel(depots, db, "Entités et historiques", "SQL")
 Rel(notif, mail, "Alertes urgentes", "SMTP")
 
-' Les autres usages (profil->catalogue, retrait->règles, notifications->dépôts,
-' bilan->plan/règles) devront être décrits dans le texte B1 et la matrice.
+' Relations complémentaires validées avec Mohamed
+Rel(sync, notif, "Changement d'offre détecté", "Événement interne")
+Rel(ech, depots, "Dates et échéances importées", "Appel interne")
+Rel(notif, depots, "Notifications et clé anti-doublon", "Appel interne")
+Rel(profil, cata, "Activités à classer", "Appel interne")
+Rel(bilan, plan, "Plan, demandes et intentions", "Appel interne")
+Rel(bilan, regles, "Exigences restantes", "Appel interne")
+  
 ' Le lien web->idp représente la connexion ; acces->idp représente la vérification du jeton.
 ' Le lien impF->registrariat correspond à la source des fichiers du C4 niveau 2.
 ' Contraintes de placement purement visuelles.
